@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: medicine2.aux
+The style file: h-physrev3.bst.bst
+Database file #1: medicine.bib
+Warning--I didn't find a database entry for "Lowe"
+Warning--I didn't find a database entry for "varietiesofincreasingtrees"
+Warning--I didn't find a database entry for "barabasi"
+Warning--I didn't find a database entry for "Berg"
+Warning--I didn't find a database entry for "nauty"
+You can't pop an empty literal stack for entry Bela
+while executing---line 973 of file h-physrev3.bst.bst
+You've used 8 entries,
+            1957 wiz_defined-function locations,
+            670 strings with 6631 characters,
+and the built_in function-call counts, 1633 in all, are:
+= -- 92
+> -- 111
+< -- 1
++ -- 36
+- -- 27
+* -- 142
+:= -- 230
+add.period$ -- 8
+call.type$ -- 8
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 80
+empty$ -- 162
+format.name$ -- 35
+if$ -- 366
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 35
+num.names$ -- 8
+pop$ -- 41
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 68
+stack$ -- 0
+substring$ -- 51
+swap$ -- 23
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 14
+width$ -- 9
+write$ -- 59
+(There was 1 error message)

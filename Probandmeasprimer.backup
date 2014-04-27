@@ -1,0 +1,211 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Pspace}{(\Omega, \mathcal{F},\mathbb{P})}
+\DeclareMathOperator{\Pspacen}{(\Omega_n, \mathcal{F}_n,\mathbb{P}_n)}
+
+\DeclareMathOperator{\X}{\mathcal{X}}
+\DeclareMathOperator{\Y}{\mathcal{Y}}
+\DeclareMathOperator{\A}{\mathcal{A}}
+\DeclareMathOperator{\B}{\mathcal{B}}
+%opening
+ \title{Primer on Measure Theory and Probability}
+\author{David Matthews}
+\begin{document}
+\maketitle 
+
+A probability space $\Pspace$ consists of a sample space $\Omega$, a $\sigma$-algebra $\mathcal{F}$ (the set of all possible measureable events $E \in \mathcal{F}$) and a probability measure $\mathbb{P}$ where $\mathbb{P}(E)$ is the probability that event $E$ occurs.  In particular we will see that a random variable in probability theory corresponds to a measurable function in measure theory.  Furthermore the integral of that function over the whole probability space (if the random variable is absolutely convergent) is known as the expectation of that random variable.      
+
+\section{The de Finetti notation}
+Let $\X$ be some set and $A \subseteq \X$, then we can define an indicator function $\mathbb{I}_{A}$  such that $\mathbb{I}_{A}(X) = 1$ if $X \in \A$ and 0 otherwise.  
+There is a correspondence between $A$ and $\mathbb{I}_A$ so we write $\tilde{A} := \mathbb{I}_A$.  
+
+Now recall that a probability measure $\mathbb{P}$ really denotes a map from some sigma field $\A$ of subsets of state space $\Omega$ to the interval
+$[0,1]$.  There exists a correspondence between the sigma algebra $\A$ and a subset of the collection of random variables on $\Omega$.  Since the expectation
+map maps random variables to $\mathbb{R}$ we can write $\mathbb{E}(\tilde{A}) = \mathbb{P}(A)).$  Therefore instead of writing $\mathbb{E}X$ for expectation
+of some event $X$ we use the notation $\mathbb{P}X$.  This has the advantage that given two probability measures $\mathbb{P}$ and $\mathbb{Q}$ on some state
+space $\Omega$ we can use $\mathbb{P}$ for the expectation corresponding to $\mathbb{P}$ etc.  
+
+\section{Random variables}
+
+%what are the measure theoretic expectation and vari\mathcal{F}^{n} ance????
+
+Let $\Pspace$ be a probability space and $X$ be a random variable then $X$ is a real valued function from the statespace $\Omega$ to $\mathbb{R}$.  In particular $X$ takes the pair $(X, \mathcal{F})$ to $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ where $\mathcal{B}(\mathbb{R})$ is the Borel field on the reals.  
+
+In general if $\X$ is any set with sigma-field $\A$ and $\Y$ is a set with a sigma-field $\B$.  Now $T$ be a function $T:\X \rightarrow \Y$.  We say that $T$ is $\A \backslash \B$-measurable if the preimage $\{X \in \X : TX \in B\}$ belongs to $\A$ for every $B \in \B$.  Now suppose that $\mu$ is a measure on the space $\X$ and that there exists a $\A \backslash \B$-measurable function $T$.  We can construct the \emph{image measure}, $\nu$, on $\B$  by setting 
+\[\nu B : = \mu(T^{-1}B),\]
+for any $b \in \B$.  
+
+\begin{exer}
+ Prove that $\nu$ derived in this  way is a measure.
+\end{exer}
+
+\begin{exer}
+Now consider the case when $X$ is a random variable, i.e. a map from $\Pspace$ to $\mathcal{B}(\mathbb{R}$.  Check that $X$ is an $\Omega \backslash \mathbb{R}$ measurable function.  
+\end{exer}
+
+The image measure of $\mathbb{P}$ in the case when $X$ is a random variable is called $X(\mathbb{P})$ and it is often written as $\mathbb{P}_X$ and it is called the \emph{distribution} of $X$.  The distribution of a variable will be the key to our later definitions.
+
+%A little more information about the distribution of a random variable - wiki etc.  What is the relationship between PX and cumulative frequency?
+
+\subsection{Strong law for large numbers}
+
+The strong law for large numbers (SLLN) asserts that a collection of averages converges almost surely to the expectation.  In its most common form the (SLLN) is stated a s below.
+
+\begin{theorem}[SLLN (Kolmogorov)]
+Let $X_{1},X_{2},\dots$ be independent, integrable random variables with the same distributions and an expectation, $\mu,$, then the average, $\frac{(X_1 + \dots + X_n)}{N}$ converges almost surely to $\mu$.  
+\end{theorem}
+
+For example if we take sequences of coin flips the proportion of heads after $n$ flips will almost surely converge to $\frac{1}{2}$ as $n$ approaches infinity.
+\subsection{Product Measures}
+
+We might ask: does a countably infinite sequence of random variables, $\{X_i : i \in \mathbb{N}\}$ necessarily exist?  In the finite case, if we have some finite  $n$ random variables $X_{1}, X_2 \dots , X_n$  such that each $X_{i}$ is a map from a probability space $\Pspacen$ we can always construct a probability measure $\mathbb{P}^n$ on the product space $\Omega^{n} = \Omega_1 \times \Omega_2 \times \dots \times \Omega_{n}$ with the product Borel field $\mathcal{F}^{n} = \mathcal{F}_1 \times \mathcal{F}_2 \times \dots \times \mathcal{F}_n$.  
+
+We can ask for two product measure $\mathbb{P}^{n}$ and $\mathbb{P}^{n+1}$ to be consistent in the expected way then we get a lovely corollary.
+
+\begin{corol}
+ For probability measures ${P}_{i}$ on arbitrary measure spaces $\Pspacen$ there exists a probability measure $\mathbb{P}$ such that 
+ \[\mathbb{P} (\mathcal{F}_1 \times \mathcal{F}_2 \times \dots \times \mathcal{F}_n)  = \Pi_{i \leq k}P_{i}A_{i}\]
+ for all measurable rectangles.
+\end{corol}
+%check i got this corrol ccorrect - bold / normal p be careful.
+
+\subsection{Convergence in Distribution}
+
+A real-valued function $f$ on a metric space $\X$ is said to be Lipschitz if there exists finite $K$ such that for all $x,y \in \X$:
+\[| f(x) - f(y)| \leq Kd(x,y).\]
+We call the space of bounded Lipschitz functions on $\X$, $BL(\X)$.
+
+\begin{defn}
+A sequence of probability measure $\{P_n\}$ on $\B(\X)$ converge weakly to a probability measure $P$ on $\B(\X)$ if $P_nf \rightarrow Pf$ for all $f \in BL(\X)$. 
+\end{defn}
+
+Let $\X$ be a metric space with metric $d(\;,\;)$ equipped with its Borel $\sigma$-field $\B(\X)$. Recall that a random element $X \in \X$ is a $\mathcal{F}\backslash \B(\X)$-measurable map from a probability space $\Pspace$ into $\X$ and that the image measure $X(\mathbb{P}$ is called the distribution of $\X$ under $\mathbb{P}$.  Now we can define the convergence in distribution of random elements $X_1,X_2, \dots$ to a probability measure $P$  
+
+We can define the convergence in distribution of a sequence of random events $X_1,X_2,\dots,$ to a probability measure $P$ on $\B(\X)$ to be if their distributions converge weakly to $P$.  
+
+\begin{remk}
+Convergence of distribution is not related to point wise convergence of the $X_n$ as functions.  Indeed, every $X_n$ might be defined on a different probability space $\Pspacen$.    
+\end{remk}
+
+%\subsection{Coupling of Random Variables}
+%Let $P$ and $Q$ be two different probability measures on some space $\Pspace$ such that $X$ and $Y$ are random elements on this space and $X$ has %distribution $P$ and $Y$ has distribution $Q$. 
+
+%what do we mean by probability measure here ... what is the difference between a bold and an unbold P?
+
+\section{Janson's Paper}
+Let $X_{ni}$ be the number of vertices of outdegree $i\geq o$ in a random recursive tree with $n$ vertices.
+\begin{thm}[Janson 1.1]\label{thm:janson}
+\begin{itemize}
+\item[(i)]As $n \rightarrow\infty, n^{-1}X_{ni} \rightarrow 2^{-i-1}$ almost surely, and 
+\item[(ii)] $n^{\frac{1}{2}}(X_{ni} - 2^{-i-1}n) \rightarrow(d) V_{i}$
+\end{itemize}
+Where $V_{i}$ are jointly Gaussian variables with means $\mathbb{E}(V_i)  = 0$ and given covariances.  
+\end{thm}
+
+We are now in a position to understand the statement of Theorem \ref{thm:janson}.  We begin by considering statement (i).
+
+Almost sure convergence means that the probability $\mathbb{P}(\text{limit holds}) = 1$ in other words 
+\[\mathbb{P}(\lim_{n \rightarrow\infty} \frac{X_{ni}}{n} = 2^{-1-i}) = 1 \]
+
+So Let $X_n$ be the number of leaves of a random recursive tree.  Almost sure convergence means that for almost all sequences $(X_{i,n})$   there exists $N_{i,j}$ such that $| \frac{X_{i,n}}{n} - 0.5| < N_{i, j}$ for all $n \geq j$.  
+
+We must interpret this theorem as , given the space of random recursive trees 1 sample from this space is an entire random recursive tree. %put in the stuff from our topological stuff here.
+This is an example of the strong law of convergence i.e. a trajectory of values of $X_{ni}/n$ will stay close to $2^{i-1}$ for any given trajectory.  
+
+This means that  samples are points in the Weak Law for Large Numbers and entire trajectories in Strong Law for Large Numbers.
+
+ 
+ 
+ \end{document}

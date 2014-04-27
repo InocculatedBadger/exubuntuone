@@ -1,0 +1,185 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+%\SetVertexNormal[Shape     = circle, LineWidth = 2pt]
+%\SetUpEdge[lw    = 1.5pt, color = blue]
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\newcommand{\pspace}{$(\Omega_\alpha,\mathcal{F}_\alpha,P_\alpha)$ } 
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+\DeclareMathOperator{\Pos}{Pos}
+%opening
+ \title{Prufer sequences}
+\author{David Matthews}
+\begin{document}
+
+\section{Space of increasing trees}
+
+\subsection{}\label{subsec:1}
+Let $L_n$ be the set of labeled trees on $n$ vertices. We can make $l_n$ into a topological space by putting the discrete topology on $L_n$. We can build the infinite product space, $L$, where $L$ is the cartesian product of topological spaces $L_{n}$  :
+\begin{equation}
+ L = \Pi_{n=1}^{\infty}L_n.
+\end{equation}
+Any $l \in L$ can be written as $(l_{1},l_{2},l_{3} \dots)$ where each $l_{i} \in L_{i}$.  Therfore there exists a subspace $A \subset L$ of attachment trees so that $a \in A$ if and only if $l_{1}$ is the tree on one vertex with no edges and each $l_{i}$ can be built from $l_{i-1}$ by attaching a vertex via an edge.
+ 
+\subsection{}\label{subsec:2}
+Another space we could consider is the infinite product space of $N_{n}: = \{0,1,2,3,\dots, n\}$ for $n = 1,2 \dots \infty$ such that each $\mathbb{N}_n$ is equipt with the discrete topology.
+\begin{equation}
+ \mathcal{L} = \Pi_{i = 1}^{\infty}\mathbb{N}_{n}.
+\end{equation}
+
+We claim that any $l \in \mathcal{L}$ corrosponds to an attachment tree since such a tree is built iteratively by attaching vertex 2 to vertex 1 then attaching vertex 3 to vertex 1 with probability 0.5 or to vertex 0 with probability 0.5 etc. so that each $N \in \mathbb{N}_n $ represents the single vertex with a higher label that vertex $n+1$ is attached to.  We can think of this as an infinite sequence of independen random variables.
+
+\section{Infinite sequences of independent random variables}\label{sec:prodmeasure}
+
+A probability space $(\Omega, \mathcal{F}, P)$  is a measure space such that $\Omega$ is a sample space, $\mathcal{F}$ is a $\sigma - $algebra event space (i.e. there exist events $E \in \mathcal{F}$), $P(E)$ is the probability of event $E$ occuring and that $P(\Omega) = 1.$  
+
+\begin{theorem}\label{thm:1}
+ Let $A$ be an arbitary set.  For each $\alpha \in A$ $(\Omega_{\alpha},\mathcal{F}_\alpha,P_\alpha)$ is a probability space such that $\Omega_{\alpha}$ is a locally compact, $\sigma$ - compact metric space with Borel $\sigma$ - algebra $\mathcal{F}_{\alpha}$ then there exists a unique probability measure
+ \[
+  P_{A} = \Pi_{\alpha \in A}P_\alpha \text{   on   } \left(\Pi_{\alpha \in A}(\Omega_\alpha, \Pi_{\alpha \in A}\mathcal{F}_\alpha,\right)  
+ \]
+Such that $P_A\left(\Pi_{alpha \in A}E_\alpha\right)  = \Pi_{a\alpha \in A} P_\alpha(E_\alpha)$.  
+
+Furthermore, whenever $E_\alpha \in \mathcal{F}_\alpha$ one has $E_\alpha = \Omega_{\alpha}$ for all but finitely many $\alpha$. 
+
+\end{theorem}
+
+We aim to use Theorem \ref{thm:1} to prove that there exists a unique probability measure on the space $\mathcal{L}$ defined in section \ref{subsec:2}.  
+Let $A = \mathbb{N}$ then for all $\alpha \in A$ we wish to prove the following Lemmas:
+\begin{lem}
+ $(\mathbb{N}_\alpha, \mathcal{P}(\mathbb{N}_\alpha), \mu_\alpha)$ is a probability space where $\mu_\alpha$ is the uniform probability measure and $\mathcal{P}(\mathbb{N}_\alpha) $ is the power set of $\mathbb{N}_\alpha$.  
+\end{lem}
+\begin{lem}
+ $\mathbb{N}_\alpha$ is a locally compact space.
+\end{lem}
+\begin{lem}
+ $\mathbb{N}_\alpha$  is a $\sigma $ - compact metric space.  
+\end{lem}
+
+
+\section{Properties of a Probability Measure}
+Let \pspace be a probability space then:
+
+\begin{itemize}
+ \item[(i)] $P_\alpha(\emptyset) = 0$
+ \item[(ii)] $P_\alpha(\Omega_\alpha) = 1$
+ \item[(iii)] $P_\alpha$ satisfies a countably additive propertry for all countable sets $I$, 
+ \[P_\alpha\left(\bigcup_{i \in I}E_i \right) = \sum_{i \in I}P_\alpha E_{i}\]
+\end{itemize}
+
+So consider the space of labeled trees, $L$, built in the way  described in section \ref{subsec:1} and let $L$ be equipt with the product measure, $\mu$ described in section \ref{sec:prodmeasure}. Similarly recall that $A$ be the subspace of $L$ consisting of attachment trees.  
+
+\begin{lem}
+ $\mu{A} = 0$ in $L$.
+\end{lem}
+\begin{proof}
+ Let $A_{i}$ be the event that a tree $l_{i} \in L_{i}$ is an attachment trees on $i$ vertices.
+ 
+ %earlier description of an attacghment tree process as usual.
+Given a tree $l  = (l_{1},l_{2}, \dots) \in L$ consider the first $i$ entries $l^{i} = (l_{1},l_{2},\dots, l_{i})$ and let $mathcal{A_{i}}$ be the event that $l$ is chosen such that $l^{i}$ corrosponds to an attachment tree.   
+ 
+By definition of the product measure
+\[ \mu(\mathcal{A}_{i} = \mu(\Pi_{a \in \mathbb{N}}E_a = \Pi_{a \in \mathbb{N}}\mu_{a}E_a.
+\]
+Where $E_{a}$ is the event that $l_{i} \in A_{i}$ for $a = 1,2,\dots, i$ and $E_{a} = \Omega_a$ for all other $a$.
+
+Since $| A_{i} | = (i-1)!$ and $|L_{i}| = i ^{i-2}$ we can write
+
+\[\mu(\mathcal{A}_i) = \Pi_{n=1}^{i}\frac{(i-1)!}{i^{i-2}}\]
+
+Given any $\epsilon >0$ there exists an $i$ such that $\mu(\mathcal{A}_i) < \epsilon$.  
+
+Since $\mathcal{A}_{i} \subset A$ for every $i$, $\mu(A) = 0$.
+\end{proof}
+
+
+ 
+\end{document}

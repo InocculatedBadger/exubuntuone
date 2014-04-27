@@ -1,0 +1,207 @@
+%X TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+%\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+
+\newcommand{\pspace}{$(\Omega_\alpha,\mathcal{F}_\alpha,P_\alpha)$ } 
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Pspace}{(\Omega, \mathcal{F},\mathbb{P})}
+\DeclareMathOperator{\Pspacen}{(\Omega_n, \mathcal{F}_n,\mathbb{P}_n)}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\Y}{\mathcal{Y}}
+\DeclareMathOperator{\A}{\mathcal{A}}
+\DeclareMathOperator{\B}{\mathcal{B}}
+\DeclareMathOperator{\F}{\mathcal{F}}
+\DeclareMathOperator{\fix}{fix}
+
+%opening
+ \title{Calculating the expected automorphism group for RRTs}
+\author{David Matthews}
+
+\begin{document}
+ %Correspondence between RRTS and special functions
+ %definition of a RRT
+
+Let $T = (V(T),E(T))$ be a random recursive tree and $d(v,w)$ be the length of the shortest path between any pair of vertices $v,w \in V(T)$.  By the process of RRT construction any (non-root) vertex $v$ in $T$ is adjacent to exactly one vertex with a lesser label. Every non-root (RRT) vertex $v$ has a well defined \emph{father}: the unique vertex $v'$ adjacent to $v$ such that $d(v',1)< d(v,1)$. Hence, to any RRT $T \in T_n$ one can associate a function $f: N_n \rightarrow N_n$ such that $f(1) =1$ and $f(i)$ is the father of $i$.  
+
+\begin{lem}
+ Let $\mathcal{F}_n$ be the set of functions $f: N \longrightarrow N$ such that $f(1) = 1$ and $f(i) <i$ for $i = 1,2,\dots n$.  There is a bijection between $T_n$ and $\mathcal{F}$.
+\end{lem}
+
+\begin{proof}
+ We have seen that every tree $T \in T_n$ corresponds to a unique function $f \in \mathcal{F}_n$.  To see the converse, take any $f \in {F}_n$ and build $T$ by the process that progressively attaches each vertex $v$ to $f(v)$.  
+\end{proof}
+
+\begin{corol}
+$\lvert T_n \rvert =  n-1!$
+\end{corol}
+\begin{proof}
+ Since $\lvert T_n \rvert = \lvert \mathcal{F}_n \rvert$ it is enough to enumerate $\mathcal{F}_n$.  One can write any $f \in \mathcal{F}_n$ as:
+ \[ f= \left(\begin{array}{cccccc}
+     1& 2&3 &4& \dots & n \\
+     1 & f(2) &f(3) &f(4) &\dots & f(n)
+    \end{array} \right)\]
+Subject to  $f(1) = 1$ and $f(i) <i$ for $i = 1,2,\dots n$. Function $f$ has 1 choice for $f(1)$ (i.e. $f(1) = 1$) and $i-1$ choices for $f(i-1)$, therefore $ \lvert \mathcal{F}_n \rvert = n-1!$. 
+\end{proof}
+
+The symmetric group, $S_n$, can act on the set of labelled rooted trees on $n$ vertices, $\tilde{T}_n$, by $\sigma \cdot T$ which permutes the non-root vertices of any $T \in T_n$ by the premutation $\sigma$.  This action does not restrict to RRTs 
+%put in example
+which begs the question:  Given $T \in T_n$ and $\sigma \in S_n$ under what conditions is $\sigma  \cdot T \in T_n$?
+
+\begin{lem}
+Let $T \in T_n$ correspond to $f \in \mathcal{F}$ then $\sigma \cdot T$ corresponds to the following  function:
+\[ f= \left(\begin{array}{cccccc}
+     1& \sigma(2)&\sigma(3) &\sigma(4)& \dots & \sigma(n) \\
+     1 & \sigma(f(2)) &\sigma(f(3)) &\sigma(f(4)) &\dots & \sigma(f(n))
+    \end{array} \right)
+\]
+\end{lem}
+
+\begin{proof}
+ 
+\end{proof}
+
+\begin{corol}
+For $T \in T_n$ and $ \sigma \in S_n$ $\sigma  \cdot T \in T_n$ whenever $\sigma(i)<\sigma(f(i))$. 
+\end{corol}
+
+ We define an indicator function for any $\sigma \in S_n, T \in \T_n$ as follows:
+ \[ I(\sigma,T) = \left\{
+  \begin{array}{l l}
+    1 & \quad \text{if $\sigma \cdot T \in T_n$}\\
+    0 & \quad \text{otherwise}
+  \end{array} \right.\]
+
+Fix $ \sigma \in S_n$, we write $P_n(\sigma) = \sum_{T \in T_n}I(\sigma,T)$ 
+\subsection{Transpositions}
+In order to understand $\sigma \cdot T$ we will begin by setting $\sigma = (i,j) \in S_n$, a transposition such that $i <j$.
+
+by Lemma \ref{lem:} if $\sigma \cdot T \in T_n$ the the corrosponding function, $f$ satisfies that $\sigma(i) < \sigma(f(i))$ for $i = 2,3,\dots,n$.  Let  $T_j$ be %%dot dot dot
+
+\begin{lem}\label{lem:rrtperm}
+ $\sigma  = (p,q) \cdot T \in T_n$ if and only if $p$ is a leaf in $T^q$ and $f(q)< p$. 
+\end{lem}
+\begin{proof}
+Assume that $T$ is a RRT.  
+\begin{case}[$i<p$]
+ If $i < p$ then $f(i) <P$ also. So $\sigma(i) = i$ and $\sigma(f(i))$ = $f(i)$.
+\end{case}
+\begin{case}[i=p]
+ $\sigma(f(p)) = f(p)$ since $f(p) <p$.  Therefore if $T$ is a random recursive tree $\sigma(p) = q  > p > f(p)  = \sigma(f(p))$.
+\end{case}
+\begin{case}[$p<i<q$]
+ Now $\sigma(i) = i$ and $f(i) < i <q$.  Note that if $f(i) = p$ then $\sigma(f(i)) = q > i  = \sigma(i)$ which occurs if and only of $T$ is a RRT.  
+\end{case}
+\begin{case}[$i=q$]
+ If $f(q) = p$ then clearly $\sigma \cdot T$ is \emph{not} an RRT.  Let $x = f(q)$, then clearly $x <i$ if and only if $\sigma  \cdot T \in T_n$. 
+\end{case}
+\begin{case}[$i>q$]
+Now $\sigma(i) = i$ and either $\sigma(f(i)) = f(i),p,q $ and $p,q, < f(i)$ there are no conditions on $f(i)$
+\end{case}
+\end{proof}
+
+
+\begin{lem}
+ $P_n(p,q) = \frac{(i-1)^{2}}{(j-1)(j-2)}$ 
+\end{lem}
+\begin{proof}
+ By Lemma \ref{lem:rrtperm}  $\sigma  = (p,q) \cdot T \in T_n$ if and only if $p$ is a leaf in $T^q$ and $f(q)< p$.  
+\end{proof}
+
+ 
+ %The numebr of three cycles (i,j,k) i<j<k
+ 
+ %The nuymber of X-cuycles
+ 
+ 
+\end{document}

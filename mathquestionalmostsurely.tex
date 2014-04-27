@@ -1,0 +1,119 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+
+
+%opening
+ \title{Question}
+\author{David Matthews \\\\\emph{Supervisors: Dr James Anderson and Dr Ben MacArthur}}
+
+\begin{document}
+% \section{Local to Global properties of ``almost surely'' statements}
+ 
+ Given some infinite collection of objects, $X$, if any $x \in X$ almost surely has property $\mathcal{P}$ what can we say about $X$?  To clarify what I mean consider interested in the following example.
+ 
+ A \emph{random recursive tree} (RRT), $T_{n}$, with vertices $V(T) = \{v_{1},\dots,v_{n}\}$ is a labelled, rooted tree obtained by assigning a root vertex $v_{1}$ then adding $n-1$ vertices one by one such that each new vertex is joined by an edge to a randomly and uniformly chosen existing vertex.
+ 
+ Local scenario:  Let $X_{ni}$ be the number of vertices of degree $i \geq 1$ in a RRT on $n$ vertices.  Janson [] proves that as $n \rightarrow \infty$ almost surely:
+ \[\frac{X_{ni}}{n} \rightarrow 2^{-i}\]
+ 
+ Global scenario:  in the limit as $n \rightarrow \infty$ then $\frac{Y_{ni}}{(n-1)!} \rightarrow ?$.  So my first hurdle is to appropriately define $Y_{ni}$.  Two possible versions of $Y_{ni}$:
+ \begin{itemize}
+  \item[(i)] $Y_{ni}$ is the number of RRTs on $n$ vertices such that $\frac{X_{ni}}{n} = 2^{-i}$ 
+  \item[(ii)] $Y_{ni}$ is the number of RRTs on $n$ vertices that are in some appropriately defined neighbourhood (dependent on $n$ and possibly $i$) of $\frac{X_{ni}}{n} = 2^{-i}$. 
+ \end{itemize}
+I initially posed the question using definition (i), however this seems far to restrictive. 
+
+Finally, I appear to be attempting to find an analogue of the expectation of an event, i.e. given that for each infinite tree $T$ we know that $T$ having the  degree distribution $2^{-i}$ is a measure 1 event but what proportion of trees have this property?      
+ 
+\end{document}

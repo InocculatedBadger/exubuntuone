@@ -1,0 +1,190 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+% \geometry{margins=2in} % for example, change the margins to 2 inches all roudn
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+%\SetVertexNormal[Shape     = circle, LineWidth = 2pt]
+%\SetUpEdge[lw    = 1.5pt, color = blue]
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{ques}{Question}
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+\DeclareMathOperator{\Pos}{Pos}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\p}{\text{Pr\"{u}fer}}
+\DeclareMathOperator{\m}{m}
+%\DeclareMathOperator{\deg}{deg}
+
+%opening
+ \title{Disproof of Ben's conjecture}
+\author{David Matthews}
+\begin{document}
+ 
+ \section{Complex automorphisms are nontrivial}\label{sec:caan}
+ 
+ Let $\{T_n\}_{n=1}^{\infty}$ be a random recursive tree and $X_{n}$ be the number of trees with leaves  isomorphic to a $(2,2)$-star.
+ %Aurt od a 2,2 star is 2!(2!)^2 = 8
+ If we assume that almost surely $lim_{n \rightarrow \infty} \frac{X_n}{n} \rightarrow \epsilon_{2,2}$ for some $\epsilon_{2,2}> 0$.  This means that except for a set of measure 0 exceptions for all $\delta > 0$ there exists $N_\delta \in \mathbb{N}$ such that for all $n >N_\delta$ 
+ \[ | \frac{X_n}{n}  - \epsilon| < \delta\]
+ Therefore we can conclude that:
+ \begin{align}
+  |X_n  - n\epsilon| &< n \delta \\
+ n\epsilon - n\delta  &< X_n < n \delta + n\epsilon \\
+n(\epsilon - \delta) &< X_n < n(\epsilon + \delta)  
+ \end{align}
+
+
+ 
+ The part of the (complex) automorphism group coming from $(2,2)$-stars can therefore be estimated as follows.  For $n >N_\delta$, 
+ \begin{align}
+ 8^{n(\epsilon - \delta)}<|Aut_{2,2}(t_N)| & = 8^{X_n} < 8^{ n(\epsilon + \delta) } \\
+ 1 < 8^{(\epsilon - \delta)}<|Aut_{2,2}(t_N)|^{\frac{1}{n}} & = 8^{X^{\frac{1}{n}}_n} < 8^{ (\epsilon + \delta) }
+ \end{align}
+Since we can choose our $\delta << \epsilon$ and there exists a Polya urn model which shows that for all $m$ and $n$ there exists an $\epsilon_{n,m}$ such that $lim_{n \rightarrow \infty} \frac{X_n}{n} \rightarrow \epsilon_{n,m}$. This disproves Ben's conjecture that almost surely, in the limit as $n \rightarrow \infty$: 
+\[lim_{n \rightarrow \infty}  |Aut_{\text{Complex}}(T_n)|^{\frac{1}{n}} \rightarrow 1\]
+ 
+\section{Convergence of the Automorphism group}%Change this title and check capitalisations 
+ 
+ In this section we will prove that $\lim_{n \rightarrow \infty} Aut(T_n)$ converges.   
+ 
+ Let $\{T_n\}_{n=1}^{\infty}$ be a random recursive tree and $X_{ni}$ be the number of vertices of degree $i$ in $T_n$.
+ 
+\begin{thm}
+ In the limt as $n \rightarrow \infty$, almost surely $\frac{X_{n,i}}{n} \rightarrow 2^{-i}$. 
+\end{thm}
+\begin{proof}
+ See Janson \ref{}
+\end{proof}
+
+In other words, except ofr a measure 0 set of exceptions for all $ \epsilon >0 $ there exists $N \in \mathbb{N}$ such that for all $n > N$ 
+\[| \frac{X_{ni}}{n} - 2^{-i}| < \epsilon. \]
+We can play the same game as section \ref{sec:cann} and write:
+\begin{align}\label{eq:bound}
+|X_{ni} - n2^{-i}| &< n\epsilon \\
+n2^{-i} -n\epsilon < X_{ni} &< n\epsilon +n2^{-i} \\
+n(2^{-i} -\epsilon) < X_{ni} &< n(\epsilon +2^{-i}) \\
+\end{align}
+For each $i$ case we can choose $\epsilon$ to be as small as possible so let each $\epsilon_{i}  = 2^{-i}$ %define this properly.
+
+Recall that there exists a geometric decomposition of $\Aut(T_n)$ into $(p,k)$-stars corresponing to a direct product decomposition of $\Aut{T_n}$ into subgroups isomorphic to symmetric groups or wreath products of symmetric groups. The stars corresponding to a wreath product $G_1 = S_{m_{1}}\wr S_{m_{2}}\wr \dots \wr S_{m_x}$ contribute $|S_{m_{1}}\wr S_{m_{2}}\wr \dots \wr S_{m_x}| = (\dots(m_1!^{m_2}m_2!)^{m_3}\dots m_{x-1}!)^{m_x}m_x!$ to the automorphism group $\Aut(T_n)$.  The star corresponding to $G_1$ is isomorphic to the graph depicted in figure \ref{}.  Notice that $|G_{1}|  = \prod_{v \in V}\deg(v)!$.  Therefore   
+given some instance, $T_n$, of random recursive tree $\{T_{n}\}_{n=1}^{\infty}$, $\Aut(T_n)$ is bounded above by $\prod_{v \in V(T_n)}deg(v)!$, hence Equation \ref{eq:bound} gives us the following bound in the limit as $n \rightarrow \infty$ almost surely:
+\begin{align}
+\Aut(T_n)&< \prod_{i=2}^{\infty}(i!)^{X_{ni}}\\
+&< \prod_{i=2}^{\infty}(i!)^{n(\epsilon_{i} + 2^{-i})}
+&< \prod_{i=2}^{\infty}(i!)^{n(2^{-i} + 2^{-i})}
+&< \prod_{i=2}^{\infty}(i!)^{n2^{-i+1}}
+\end{align}
+This implies that $\Aut(T_{n}^{\frac{1}{n}} < \prod_{i=2}^{\infty}(i!)^{2^{-i+1}} : = X$ .  It remains to check that the convergence of $X$ for which we will need the following theorem.
+
+\begin{thm}
+ If $b_n \neq 0$  for all $n$ then $\prod_{n=0}^{\infty}b_{n}$ converges if and only if $\sum_{n=0}^{\infty}Log(b_{n})$ converges. 
+\end{thm}
+\begin{proof}
+ See the proof of Theorem 3.8.1 in \ref{JonesandSingerman}.
+\end{proof}
+
+Therefore it suffices to prove that $\sum_{n=0}^{\infty}\frac{Log(i!)}{2^{i -1}}$ converges.  By Stirling's approximation and the comparison test $\sum_{n=0}^{\infty}\frac{Log(i!)}{2^{i -1}}$ converges. 
+
+
+%check that | is the best symbol fro size of.
+%do we need not allow the case when we have edge involutions? - See Mathstackexchange 25pt question for correct terminology.
+%NO because that is a measure 0 event - need to prove
+
+\begin{remk}
+ Assume that in the limit as $ n \rightarrow \infty$ $\frac{X_n}{n} \rightarrow X$ almost surely.  This means that apart from a measure zero set of sample of RRTs $\forall \epsilon>0 \exists N_{\epsilon}$ such that $\forall n >N_{\epsilon} |\frac{X_n}{n} - X| < \epsilon$.
+ 
+ This does \emph{not} mean that apart from a measure zero set of RRTs that $\lim_{n \rightarrow \infty} X_n = Xn$. On the other hand we can say that given any $\delta >0$ there exists $n'$ such that $|X_n - Xn| < \delta$  (just take $n' = N_{\delta/N_\delta}$).
+ 
+ 
+\end{remk}
+
+
+
+
+
+
+\end{document}

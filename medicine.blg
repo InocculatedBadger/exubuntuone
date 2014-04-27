@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: medicine.aux
+The style file: h-physrev3.bst.bst
+Database file #1: medicine.bib.bib
+I was expecting a `,' or a `}'---line 41 of file medicine.bib.bib
+ : 
+ : year = {2013},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 123 of file medicine.bib.bib
+ : 
+ : year={1954},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Lowe"
+Warning--I didn't find a database entry for "varietiesofincreasingtrees"
+You can't pop an empty literal stack for entry Bela
+while executing---line 973 of file h-physrev3.bst.bst
+Warning--empty author and editor in nauty
+Warning--empty publisher in nauty
+Warning--empty year in nauty
+You've used 9 entries,
+            1957 wiz_defined-function locations,
+            667 strings with 6617 characters,
+and the built_in function-call counts, 1739 in all, are:
+= -- 97
+> -- 112
+< -- 1
++ -- 37
+- -- 27
+* -- 154
+:= -- 237
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 88
+empty$ -- 179
+format.name$ -- 35
+if$ -- 390
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 9
+newline$ -- 38
+num.names$ -- 8
+pop$ -- 47
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 71
+stack$ -- 0
+substring$ -- 51
+swap$ -- 25
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 14
+width$ -- 10
+write$ -- 64
+(There were 3 error messages)

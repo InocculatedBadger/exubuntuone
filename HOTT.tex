@@ -1,0 +1,194 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+
+
+%opening
+ \title{HTT}
+\author{David Matthews }
+
+\begin{document}
+\section{Introduction}
+\section{Path Induction}
+\section{Functions are Functors}
+% $ap_{f}(refl_{x}) = refl_{f(x)}$  and by lemma \ref{} $refl_{x} \Box refl_{x} = refl_{x}$.
+ \section{Chapter 2.3 Type Families are fibrations}
+Every proof in the relevant section in the book is proved by path induction.
+   
+
+Let $P:A \rightarrow U$ be a type family which we can consider as a fibration. 
+
+Consider some $x,y:A$ and a path $p: x =_{A} y$ this will be our base space. The total space is $\sum_{x:A}P(x)$ which is the dependent pair types.  This means that given any $x:A$ there exists a fibre $P(x): \sum_{x:A}P(x)$ of elements that map to $x:A$ via the first projection $\pi(x,u) = x$.  
+
+\begin{lem}{Transport}\label{lem:2.3.1}
+ There exists a function $transport^{P}(p,_) := p_{*}: P(x) \rightarrow P(y)$.
+\end{lem}
+
+\begin{proof}
+Let $p$ be $refl_{x}$ and use path induction. Note that $(refl_{x})_{*} = id_{P(x)}$.
+\end{proof}
+
+Homotopy Version:
+Given any two points, $x,y$ in base space $A$ and fibers $P(x)$ and $P(y)$ above $x$ and $y$ respectively then there exists a function from $P(x)$ to $P(y)$ 
+
+
+
+\begin{lem}{Path Lifting Property}\label{lem:2.3.2}
+ Fix some $u:P(x)$ then there exists a path
+ \[lift(u,p): (x,u) = (y,p_{*}(u))\]
+\end{lem}
+
+\begin{proof}
+ Assume that $p$ is $refl_{x}$.  By the proof of lemma \ref{lem:2.3.1} $(refl_{x})_{*} = id_{P(x)}$, hence;
+ \[lift(u,refl_{x}) := ((x,u) = (x,u)) := refl_{(x,u)}\]
+ Now path inductions give us the existence of $lift$.  
+\end{proof}
+So given a path, $p: x=y$, in the base space and and any element of the fibre $P(x)$ there exists a path, $p': (x,u) = (y,p_{*}(u)$ such that $(x,u):P(x)$ the fibre over $x$ and $(y,p_{*}(u):P(y)$ the fibre over $y$.  I.e. we have lifted the path $p$.
+
+Given some $f : \Pi_{x:A}P(x)$ we can define a non-dependent function $f':A \rightarrow \sum_{x:A}P(x)$ by setting $p'(x) :=(x,f(x))$.  In homotopological terms $f'$ is a right continuous inverse to $pi_{1}$ i.e. a section.
+
+\begin{lem}\label{lem:2.3.4}
+ Fix $f$ be as above, then there exists a dependent map:
+ \[apd_{f} \Pi_{p:x=y}p_{*}(f(x)) = _{P_{y}} f(y)\]
+ \end{lem}
+
+ \begin{proof}
+  So suppose (as usual) that $p$ is $refl_{x}$.  Then
+  \[(refl_{x})_{*}(f(x)) = _{P(y)} f(x)\]
+  \[:=refl_{f(x)}\]
+  By path induction $apd_{f}$ exists.
+ \end{proof}
+So, given some section, $f':=(x,f(x)$,  there exists a map over the section $P(y)$ from $p_{*}(f(x))$ to $f(y))$.  
+
+%Recall that $transport^{P}(p,_)$ is a function from a family of types to a family of types. We can specify the $u:P(x)$ that transport maps to by writing $transport^{P}(p,u)$.  
+
+\begin{lem}\label{lem:2.3.5}
+Fix some $A,B : U$ and b:B. If the type family $P:A \rightarrow U$ is defined to be $P(x):=B$  (not dependant on $A$).  Then there exists a path:
+\[transportconst^{B}_{p}(b): transport^{P}(p,b) = b .\]
+\end{lem}
+ 
+\begin{proof}
+We can assume that $p := refl_{x}$ so that we must consider $transport^{P}(refl_{x}.b) = b$.  By lemma \ref{lem:2.3.1}  $transport^{P}(refl_{x}.b):=b$ so we just need to construct a witness of type $refl_{b}$ and apply path induction.  
+\end{proof}
+
+
+Lemma \ref{lem:2.3.5} highlights the subtle difference between a \emph{function} and  a path: just compare $transport$ which is a function and tells us that a point $u$ goes to point $v$  and $transportconst$ which is a path between $u$ and $v$.  
+So if $P$ is a type family independent from $A$ and given $x,y:A$ and a path between them $p:x=_{A}y$, then for any $b$ in the total space $B$ we have $transport^{P}(p,b)$ is a function from $P(x):=B$ to $P(y):=B$.  In particular, it sends $transport^{B}(p,b):B$ to $b:B$.  Furthermore $transportconst^{P}_{p}(b)$ is a \emph{path} between  $transport^{P}(p,b)$ and  $b$.  We will see that $transportconst$ makes sense when mapping \emph{within} a particular fibre $P(x)$.   
+
+Now we wish to link the dependent and independent functions $ap_{f}(p)$ and $apd_{f}(p)$.
+
+\begin{lem}\label{lem:2.3.6}
+Let $f:A \rightarrow B$, then
+\[apd_{f}(p) = transportconst_{p}^{B}(f(x)) \Box ap_{f}(p)\]
+\end{lem}
+%you need to define ap and concatenation
+ \begin{proof}
+By path induction it is enough to assume that $p$ is $refl_{x}$.  So we wish to construct a witness to type $apd_{f}(refl_{x}) = transportconst_{refl_{x}}^{B}(f(x)) \dot ap_{f}(refl_{x})$.  By lemma \ref{lem 2.3.5} $transportconst^{B}_{p}(b) = refl_{b}$, by lemma \ref{} $ap_{f}(refl_{x}) = refl_{f(x)}$  and by lemma \ref{} $refl_{x} \Box refl_{x} = refl_{x}$.   Putting this together we need to prove  $refl_{f(x)} = refl_{f(x)}$: we have $refl_{refl_{f(x)}}$ for this.  Path induction gives the required result.  
+\end{proof}
+
+In topological terms, given a fibration $\pi_{1}:\sum_{x:A}P(x)$ and a function $f:A \rightarrow B$ such that $f'(x) = (x,f(x))$ and a path $x = y$ in space $A$ we know there exists the following three maps in $B$:
+\begin{itemize}
+\item[(i)] $apd_{f}(p)$ is a path in the fibre, $P(y) := B$ over $y$ from $transport^{P}(p,f(x))$ to $f(y)$
+\item[(ii)]$transportconst_{p}^{B}(f(x))$ is a path in $B$ from $transport^{P}(p,f(x)) :B$ to $f(x): B$.   
+\item[(iii)]$ap_{f}(p)$ is the path from $f_{x}$ to $f(y)$ in $B$.  
+\end{itemize}
+
+Drawing these paths in $B$ assures us that Lemma \ref{lem:2.3.6} is well-typed.  
+    
+
+
+
+
+
+
+\end{document}

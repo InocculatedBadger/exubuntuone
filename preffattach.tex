@@ -1,0 +1,143 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+
+
+%opening
+ \title{Preferential Attachment}
+\author{David Matthews}
+
+\begin{document}
+ 
+ \section{Introduction}
+ %degree distribution
+ \subsection{Random Recursive Planar Trees}\label{RRPT}
+ 
+ To build a random recursive planar tree,$T$, on $n$ nodes one begins with a root vertex and adds $n-1$ vertices one by one.  Let $V(T)$ be the vertex set of $T$. The descendants of any vertex $v \in V(T)$ are ordered (say from left to right), therefore if $v$ has outdegree $d$ there are $d+1$ distinct possible positions for a new vertex to attach to $v$.  So if the outdegrees of every vertex are $d_{1},d_{2},d_{3},\dots,d_{n}$ then the number, $N$, of possible attachment points for a new vertex is
+ \begin{align*}
+  N &= (d_{1} +1) + (d_{2} + 1) + \dots + (d_{n} + 1)\\
+   &= n + (d_{1} + d_{2} + \dots d_{n}) \\
+  &= n + (n-1) = 2n -1.
+ \end{align*}
+ Each new vertex is attached to a vertex of $T$ chosen uniformly at random from the $2n -1 $ possiblities.  To be even more explicit, given a random recursive planar tree $T$ on $n$ vertices then for chosen vertex $v$ with outdegree $d$ the probability, $p$ that the new vertex will be attached to $v$ is:
+ \[p = \frac{d+1}{\sum_{i=1}^{n}d_{i}}.\] 
+ 
+ \subsection{Barabasi-Albert Model}
+ \subsection{Barabasi-Albert Model for Trees}
+ 
+ Given a tree $T$ with vertices $V(T) = \{v_{1},v_{2},\dots,v_{n}\}$ such that the degree of each vertex is $deg(v_{i})$ for $i = 1,2,\dots n$ then we attach to node $v$ with probability proportional to $deg(v)$.  More specifically we choose node $v$ with probability $q$ where $q$ is defined as follows:
+ \[q = \frac{deg(v)}{\sum_{v \in V(T)}deg(v)}.\]
+ %sort out notation between the sections.
+ 
+ Since $q$ defined above and $p$ from section \ref{RRPT} are equal there exists a corrospndence between the Barabasi-Albert prefferential attachment model for trees and random recursive planar trees.  Furthermore, the limiting behaviour of these trees must be the same.  
+ 
+ 
+ 
+ \section{Degree Distribution}
+
+Let $T$ be a random recursive planar tree on $n$ nodes and $X_{ni}$ be the number of vertices of outdegree $i \geq 0$ in a random plane recursive tree on $n$ vertices.
+
+\begin{thm}
+ Almost surely in the limit as $n \rightarrow \infty n^{-1}Y_{ni} \rightarrow \frac{4}{(i+1)(i+2)(i+3)}$.  
+\end{thm}
+
+ \begin{proof}
+  See \cite{}, Theorem 1.3. 
+ \end{proof}
+
+ By the corrospondence between random recursive planar trees and Barabasi-Albert trees almost surely as $n \rightarrow \infty$ the degree distribution of a Barabasi-Albert tree tends to $\frac{4}{(i+1)(i+2)(i+3)}$.  
+ 
+ \bibliographystyle{h-physrev3.bst}
+\bibliography{./urns.bib}
+ 
+\end{document}

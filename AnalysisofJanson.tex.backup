@@ -1,0 +1,494 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+%\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+%\usepackage{appendix}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+
+\newcommand{\pspace}{$(\Omega_\alpha,\mathcal{F}_\alpha,P_\alpha)$ } 
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Pspace}{(\Omega, \mathcal{F},\mathbb{P})}
+\DeclareMathOperator{\Pspacen}{(\Omega_n, \mathcal{F}_n,\mathbb{P}_n)}
+
+\DeclareMathOperator{\X}{\mathcal{X}}
+\DeclareMathOperator{\Y}{\mathcal{Y}}
+\DeclareMathOperator{\A}{\mathcal{A}}
+\DeclareMathOperator{\B}{\mathcal{B}}
+\DeclareMathOperator{\F}{\mathcal{F}}
+
+%opening
+ \title{Analysis of Janson}
+\author{David Matthews \\\\\emph{Supervisors: Dr James Anderson and Dr Ben MacArthur}}
+
+\begin{document}
+\section{Introduction}
+
+%add the strong law for large numbers.
+
+\subsection{Attachment Trees}
+A \emph{random attachment tree}, is a nested family $\{T_n\}_{n=1}^{\infty}$ of  labeled, rooted trees obtained by assigning $T_1$ to be the tree with 1 vertex labelled $v_1$ and 0 edges and building $T_n+1$ from $T_n$ attaching vertex $v_n+1$ by an edge to a randomly chosen vertex in $T_n$. A random recursive $q$-ary tree is random attachment tree where each vertex has maximum outdegree $q$.  A random recursive tree (RRT) is a random attachment tree where each new vertex is attached \emph{uniformly} at random to an existing vertex.  
+
+\section{Attachment trees as a probability space}
+A probability space $(\Omega, \mathcal{F}, P)$  is a measure space where we say that $\Omega$ is a sample space, $\mathcal{F}$ is an event space ( there exist events $E \in \mathcal{F}$), $P(E)$ is the probability of event $E$ occuring and $P(\Omega) = 1$.  In this section we will show that we can think of attachment trees as probability spaces. 
+
+ 
+\subsection{A space of attachment trees}\label{subsec:2}
+Clearly $L$ is not the correct space for us to consider attachment trees.  Another space we could consider is the infinite product space of $N_{n}: = \{0,1,2,3,\dots, n\}$ for $n = 1,2 \dots \infty$ such that each $\mathbb{N}_n$ is equipt with the discrete topology.
+\begin{equation}
+ \mathcal{L} = \prod_{i = 1}^{\infty}\mathbb{N}_{n}.
+\end{equation}
+
+We claim that any $l \in \mathcal{L}$ corrosponds to an attachment tree since such a tree is built iteratively by attaching vertex 2 to vertex 1 then attaching vertex 3 to vertex 2 with probability 0.5 or to vertex 1 with probability 0.5 etc. so that each $N \in \mathbb{N}_n $ represents the single vertex with a higher label that vertex $n+1$ is attached to.  We can think of this as an infinite sequence of independen random variables.
+
+Similarly the space of random recursive $q$-ary trees, $\mathcal{L}_q$ can be thought of as an infinite product space:
+\[\mathcal{L}_q = \prod_{i=1}^{\infty}\Omega_{n} \]
+such that $\Omega_{n} = \mathbb{N}_{n}$ for $n = 1,\dots q-1$ and $\Omega_{n} = \mathbb{N}_{q}$ subsequently. 
+
+\subsection{A probability measure on attachment trees}
+
+Now that we have suitably defined the space of attachemnt trees, we also need to define a measure on this space so we appeal to a theorem of Tao \cite{}.
+
+\begin{theorem}\label{thm:1}
+ Let $A$ be an arbitary set.  For each $\alpha \in A$ let $(\Omega_{\alpha},\mathcal{F}_\alpha,P_\alpha)$ be a probability space such that $\Omega_{\alpha}$ is a locally compact, $\sigma$-compact metric space with Borel $\sigma$-algebra $\mathcal{F}_{\alpha}$ then there exists a unique probability measure
+ \[
+  P_{A} = \prod_{\alpha \in A}P_\alpha \text{   on   } \left(\prod_{\alpha \in A}\Omega_\alpha, \prod_{\alpha \in A}\mathcal{F}_\alpha,\right)  
+ \]
+Such that $P_A\left(\prod_{\alpha \in A}E_\alpha\right)  = \prod_{\alpha \in A} P_\alpha(E_\alpha)$.  
+
+Furthermore, whenever $E_\alpha \in \mathcal{F}_\alpha$ one has $E_\alpha = \Omega_{\alpha}$ for all but finitely many $\alpha$. 
+
+\end{theorem}
+
+We aim to use Theorem \ref{thm:1} to prove that there exists a unique probability measure on the space $\mathcal{L}$ defined in section \ref{subsec:2}.  
+Let $A = \mathbb{N}$ then for all $\alpha \in A$ we wish to prove the following Lemmas:
+\begin{lem}
+ $(\mathbb{N}_\alpha, \mathcal{P}(\mathbb{N}_\alpha), \mu_\alpha)$ is a probability space where $\mu_\alpha$ is the uniform probability measure and $\mathcal{P}(\mathbb{N}_\alpha) $ is the power set of $\mathbb{N}_\alpha$.  
+\end{lem}
+\begin{lem}
+ $\mathbb{N}_\alpha$ is a locally compact space.
+\end{lem}
+\begin{lem}
+ $\mathbb{N}_\alpha$  is a $\sigma $-compact metric space.  
+\end{lem}
+
+\section{P\'{o}lya Urns}
+A generalised P\'{o}lya urn $\mathcal{U}$ contains a finite number of balls of finitely many possible types $1,2,\dots,q$. The content of the urn at time $t$
+is described by a vector $X_{t} = (X_{t,1},X_{t,2},\dots X_{t,q})$ where each $X_{t,i}$ is the number of balls of type $i$ in the urn at time $t$.  We associate an
+\emph{activity} $a_{i}$ and a transition vector $\xi_{i} = (\xi_{i,1},\xi_{i,2},\dots,\xi_{i,q})$ to each type.  A generalised P\'{o}lya urn is an evolving process with initial
+content $X_0$ and at subsequent times a ball is drawn from the urn. We also assume that $\mathbb{E} \lvert X_0 \rvert^2$.  At time $t$ a ball of type $i$ is drawn with probability
+\[P_{i,t} = \frac{a_{i}X_{t-1,i}}{\sum_{j=1}^q X_{t-1,j}}\]  
+The drawn ball is then  returned to the urn with $\xi_{ij}$ balls of type $j$ for $j = 1,2,\dots,q$.  In general we also require the following further conditions:
+\begin{equation}\label{eq:cond1}
+ \xi_{i,j} \geq 0 \text{   if   } j \neq i\\ 
+\end{equation}
+\begin{equation}\label{eq:cond2}
+ \xi_{i,i} \geq -1 
+\end{equation}
+
+Assume that a ball of type $i$ is chosen from an urn, Equation \ref{eq:cond1} ensures that no balls of a type \emph{other} than $i$ is removed from the urn and Equation \ref{eq:cond2} means that at most one ball of type $i$  is removed from the urn.  Together these conditions prevent teh removal of a ball that does not exist from a generalised P\'{o}lya urn.      
+
+\begin{remk}
+ If $a_i = 1$ for every type $i$ then at each time a ball is drawn from the urn it has a uniformly random type.   
+\end{remk}
+
+\subsection{Properties of P\'{o}lya urns}
+The crux of this section is Theorem \ref{thm:3.21} which is a limit theorem for P\'{o}lya urns.  In order to state this theorem we require some further concepts from urn theory.
+
+To every P\'{o}lya urn we can associate a matrix $A$ such that the $j^{th}$ column of $A$ is defined to be $a_j \mathbb{E}(\xi_{j})$ where $\mathbb{E}$ denotes expectation.
+
+We will write $i\succ j$ if it is possible to find a ball of type $j$ in an urn beginning with a single ball of type $i$.  We say that a type $i$ is \emph{dominating} if $i\succ j$ for every type $j = 1,2,\dots q$. Note that $\succ$ is a transitive and reflexive relation so it partitions the set of types in to equivilence classes $C_1,C_2,\dots , C_r$ where types $i,j \in C_k$ if $i\succ j$ and $j\succ i$.  We say that some class $C_k$ is dominating if some $i \in C_k$ is dominating.
+
+%One usually requires that a P\'{o}lya urn, $\mathcal{U}$ can never become empty and if $\mathcal{U}$ contains a ball of type $i$ then there is a positive probability that $\mathcal{U}$ will contain a ball of type $j$ for all other types $j$ at some future time.  
+We say that a generalised P\'{o}lya urn becomes \emph{essentially extinct} if at some time $t$ there does not exist a ball of dominating type.  
+
+      
+
+\begin{theorem}\label{thm:3.21}
+ Let $A$ be the matrix associated to some non-essentially extinct P\'{o}lya urn process such that:
+ \begin{itemize}
+  \item[(A1)] Equations \ref{eq:cond1} and \ref{eq:cond2} are satisfied.
+  \item[(A2)] $\mathbb{E}(\xi_{ij}) < \infty$ for all $i,j  = 1,2,\dots, q$.
+  \item[(A3)] There exists a largest real eigenvalue $\lambda_{1}$ of $A$ which is positive.
+  \item[(A4)] $\lambda_1$ is simple.
+  \item[(A5)] There exists a dominating type, $i$, and $X_{0,i} > 0$.
+  \item[(A6)] $\lambda_{1}$ belongs to dominating type.  
+ \end{itemize}
+Let $v_{1}$ be the right eigenvector associated with $\lambda_1$ then:
+\[n^{-1}X_{n} \rightarrow \lambda_{1}v_{1} \text{   almost surely as   } n \rightarrow\infty\]
+\end{theorem}
+
+Janson uses Theorem \ref{thm:3.21} to prove that if $X_{n,i}$ is the number of vertices with outdegree $i(\geq 0 )$ in a RRT on $n$ vertices then:
+
+\begin{theorem}\label{thm:3.1}
+ In the limit as $n\rightarrow\infty$, $\frac{X_{n,i}}{n} \rightarrow 2^{-i-1}$ almost surely.
+\end{theorem}
+Theorem \ref{thm:3.1}  is an example of the strong law for large numbers.  Loosely speaking, given any infinite RRT, we can think of $\frac{X_{n,i}}{n}$ as a trajectory which gets ever closer to the expected outdegree of $2^{-i-1}$. 
+
+\section{A specific P\'{o}lya urn}\ref{sec:npu}
+
+In this section we will describe a generalized P\'{o}lya urn , $\mathcal{U}_m$ that describes the distribution of random recurssive $d$-ary tree motifs.  Subsequently we will hit $\mathcal{U}_m$ with Theorem \ref{thm:3.21} to prove a limiting thoerem for network motifs.
+
+Let $\{T_n\}_{n=1}^{\infty}$ be a random recursive $d$-ary tree process.  At time $n$ any vertex $v \in V(T_n)$ is incident to $l$ leaves where $0 \leq l \leq d$.  We call the induced subtree of $T_n$ with a hubnode adjacent to $l$ leaves such that each leaf has higher label than the hub an $l$-star (an $l$-star is an example of a network motif).  By taking $l$ to be maximal partition $V(T_n)$ can be partitioned into $d+1$ sets of vertices contained in induced $l$-stars for $l=1,2,3, d$ and the set of vertices not contained in any $l$-star.
+
+Balls in $\mathcal{U}_m$  may take one of $d+1$ types that correspond to the aforementioned partition. In particular types $2,3,\dots d+1$ correspond to vertices in $(d-1)$-stars  and type 1 corresponds to the remaining vertices (for conveniance we will refer to these vertices as 0-stars).  Since an $l$-star contains $l+1$ vertices we set activities $a_i = i$ for $i = 1,2,\dots d$ and $a_{d+1} = d$ for the reasons we give below.
+
+At time $n+1$ vertex $v_{n+1}$ is attached to $i$ is attached via an edge to a vertex $v\in V(T_n)$.  In order that the distribution of network motifs is the same as the distribution of types the probability that $v$ is contained in an induces $i+1$-star must be the same as the probability that a ball of type $i$ is drawn from $\mathcal{U}_m$ at time $n+1$.  Furthermore, we claim that the appropriate transition vectors are as follows:
+\begin{align*}
+ \xi_{1} &= (-1,1,0,\dots,0) \\
+ \xi_{2} &= (\frac{1}{2},-\frac{1}{2},\frac{1}{2},0,\dots,0) \\
+ \xi_{3} &= (-0,\frac{4}{3},-1,\frac{1}{3},0,\dots,0) \\
+ \xi_{i} &= (0,\frac{i-1}{i},0,\dots,0, \frac{i-1}{i},-1,\frac{1}{I},O,\dots,0) \\
+ \xi_{d+1} &= (0,1,0,\dots,0,1,-1) \\
+\end{align*}
+
+\begin{proof}[of claim]
+ For $i = 2$ assume that $T_n$ and $X_n$ are as usual and that one draws a ball of type 2 from $U_n$.  Then equivilently at time $n+1$ one attaches vertex $v_{n+1}$ via an edge to an induced 1-star of $T_n$ for clarity let that 1-star have hub $h$ and leaf $l$.  With probability $\frac{1}{2}$ vertex $v_{n+1}$ is attached to $h$, in which case a 2-star is created.  Similarly with probability $\frac{1}{2}$ veretx $v_{n+1}$ is attached to $l$ in which case a 1-star and a 0-star are created.  See Diagram %BLAH
+ for further details.  Vectors $\xi_i$ are built in an analogous way for $i = 3,4,\dots,d$.  If a ball of type $d+1$ is drawn from $\mathcal{U}_m$ we could equivilently imagine that a vertex is connected via an edge to a $d$-star.  Since each $T_n$ is a $d$-ary tree $v_n+1$ \emph{must} be attached to a leaf of that $d$-star (this is why we set $a_d+1 = d$.  
+ \end{proof} 
+
+%For the remainder of this section $A_q$ is such that $ q \geq 4$ will be the $q \times q$ matrix associated with the P\'{o}lya urn process described above.
+
+
+%To prove Lemma \ref{lem:B1} we must first state a particularly beautiful theorem from linear algebra: the Gershgorin circle theorem.
+
+\section{Further Background}
+
+In order to prove Theorem \ref{thm:A1} we require further background from linear algebra such as the Gershgorin Circle Theorem (Theorem \ref{thm:gct}) and a short introduction to Perron-Frobenius theory.
+
+\subsection{The Gershgorin circle Theorem}
+
+\begin{thm}{Gershgorin circle theorem}\label{thm:gct}
+ Let $A \in M_n(\mathbb{C}$, and define 
+ \[R_i = \sum_{i = 1, i \neq j}^n |a_{ij}|\]
+ Then each eigenvalue of $A$ is in at least one of the disks 
+\[D_{i} = \{z : | z-a_{ii}| \leq R_{i}\]
+\end{thm}
+Somewhat suprisingly the Gershgorin circle theorem gives us a bound on the values of the eigenvalues; informally it tells us that the eigenvalues cannot be too far from the diagonal elements of $A$. 
+
+\subsection{Nonnegative matrices}
+The reference for this section is \cite{Nonnegative matrices and Markov Chains}.
+A square matrix $A = \{a_{ij}\}$ is said to be \emph{nonnegative} if every element $a_{ij} \geq 0$ and we write $A \geq 0$.  We say that a nonnegative matrix $A$ is \emph{irreducible} if for every $a_{ij}$ there exists some $n \in \mathbb{N}$ such that $(a_{ij})^n > 0$. 
+
+A square matrix $A=\{a_{ij}\}$ is said to be Metzler if for all $i \neq j$, $a_{ij} \geq 0$. A Metzler matrix $A \in M_{n}(\mathbb{C})$ is related to a nonnegative matrix $T$ by:
+\[T = \mu I + A\]
+for some large enough $\mu \in \mathbb{R}$.
+
+\begin{defn}\label{defn:Met}
+ A Metzler matrix $A$ is is said to be irreducible if the related nonnegative matrix $T$ is irreducible.
+\end{defn}
+
+The theory of nonnegative matrices has been widely studied and Perrron-Frobenius theory yields the following theorem.
+
+\begin{thm}\label{thm:ev}
+ Let $A$ be an irreducible Metzler square matrix.  
+ \begin{itemize}
+  \item(i) Matrix $A$ has an eigenvalue $\lambda_1$ such that $\lambda_1 \in \mathbb{R}.$
+  \item(ii) $\lambda_1$ is associated with strictly positive left and right eigenvectors.
+  \item(iii) $\lambda_1 > Re(\lambda)$ for any other other eigenvalue $\lambda$ of $A$. 
+  \item(iv) $\lambda_{1}$ is simple.
+ \end{itemize}
+\end{thm}
+
+\begin{thm}\cite{addcitation:applied graph theory - wai-kai chen}\label{thm:gt}
+ Let $A = \{a_ij\}$ be an $n \times n$ matrix.  Associate to $A$ a directed graph $G_A$ on $n$ vertices with a directed edge from $i$ to $j$ whenever $ a_{ij}>0$.  Then $A$ is irreducible if and only if $G_A$ is strongly connected.
+\end{thm}
+
+
+
+\begin{theorem}\label{thm:A1}
+If $A_{d+1} = \{a_ij\}$ be the $(d+1) \times (d+1)$ matrix associated with the generalized P\'{o}lya urn $U_m$ then $A_{d+1}$ satisfies (A1)-(A6). 
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+ \item[(A1)]  True by construction.
+ 
+ \item[(A2)]  true since $d$ is finite $\xi_{ij} \leq d+1 < \infty$.
+ 
+ \item[(A3)] Clearly 1 is an eigenvalue of $A_{d+1}$ with left eigenvector $u_1 = (1,1,\dots,1)$.  We claim that 1 is the largest real eigenvector of $A_q$ and to prove this claim we appeal to the Gershgorin Circle Theorem.  Note that for each column in $A_q$, the sum of the diagonal elements:
+\begin{align*}
+ C_1 &= 2
+ C_2 &= 2
+ C_i &= \sum_{j \neq i} \lvert a_{ij} \rvert = i+1  \text{      if     }  3\leq i \leq d+1 
+\end{align*}
+ Let $D_i = D(a_{ii}, C_i)$ be the disk in $\mathbb{C}$ centred at $a_{ii}$ with radius $C_i$.  Note that $D_1 = D(-1,2)$, $D_2 = D(-1,2)$  and  $D_i = (-i,i+1)$ for $i = 3,4,5,\dots, d+1$. Let $\mathcal{D} = \bigcup_i D_i(a_{ii},C_i)$ (see Figure \ref{} for an image of $\mathcal{D}$).  The largest real number in  D is clearly 1, therefore by the Gergorin Circle Theorem the largest real eigenvalue $\lambda_1$ of $A_{d+1}$ is 1.    
+ 
+ \item[(A4)]  Since no off diagonal element of $A_{d+1}$ is negative $A_{d+1}$ is a Metzler matrix.  Therefore $A_{d+1}$ can be associated with a nonnegative matrix $T$ by writing:
+\[T_\mu = \mu I + A_{d+1}\]
+For some choice of $\mu \in \mathbb{R}$.  We make the choice $\mu = d+1$ so that $T_{d=1}$ is a nonnegative matrix.  By Theorem \ref{defn:Met} $A_{d+1}$ is irreducible if $T_{d+1}$ is irreducible.  
+
+Note that all the subdiagonal and superdiagonal entries of $T_d+1$ are positive so the graph $G_A$ built in the way described in Theorem \ref{thm:gt} is strongly connected so $A_{d+1}$ is irreducible.  By Theorem \ref{thm:ev} 1 is a simple eigenvalue.  
+ \item[(A5)] True since $A_{d+1}$ is irreducible and $X_{0} \neq 0$.
+ \item[(A6)] True since $A_{d+1}$ is irreducible and $X_{0} \neq 0$.
+\end{itemize}
+%prove that irreducible Aq means irreducible polya urn process.
+\end{proof}
+
+
+\end{document}
+
+
+\begin{lem}
+ $\mathbb{P}(u_1 \dot y(t) >0 \text  {  and  } W = 0) \rightarrow 0$ as $t \rightarrow \infty$.
+\end{lem}
+
+\begin{proof}
+ Let us make the simplifying definition $* = u_1 y(t) >0 \text {  and  } W = 0$. 
+
+Recall from the proof of Lemma \ref{lem:B1} that $u_1 = (1,1,\dots,1)^T$ and recall from  
+ defintion \ref{def:W} that $W =  u_{1}^{T}W_{\lambda_1}$.  By remark \ref{rmk:Wtilde} $W =  u_{1}^{T}\tilde{W}_{\lambda_1}$, therefore
+ \begin{align}
+  \mathbb{P}(*) = \mathbb{P}(\sum_{i=1}^q y(t) >0 \text{  and   } \sum_{i=1}^q \tilde{W}_{\lambda_1,i} = 0) 
+ \end{align}
+Furthermore, by Lemma \ref{lem:ranvec} in the limit as $t \rightarrow \infty$ $v_{1,i}y(t)_i \rightarrow \tilde{W}_{\lambda_1,i}$ and by Lemma \ref{lem:} each $v_i >0$, in the limit as $t \rightarrow \infty$ $\mathbb{P}(*) = 0$.  
+
+ $A_q$ has a largest eigenvalue $\lambda_1 = 1$ and $\lambda_1$ is simple. 
+
+\end{proof}
+
+
+\section{Appendix}
+The reference for this section is \cite{Blyth}. Let $V$ be a non-zero, finite-dimensional vector space over a field $F$ througout this section.
+
+\begin{defn}
+ A linear map $f: V \rightarrow V$ is said to be nilpotent if $f^m = 0$ for a positive interger $m$.
+\end{defn}
+If $f:V \rightarrow V$ is nilpotent then the index of $f$ is the least positive integer, $k$, such that $f^k = 0$. 
+
+\begin{defn}
+ By an \emph{elementary Jordan matrix} associated with $\lambda \in F$ we mean either the $1 \times 1$ matrix $\lambda$ or a square matrix of the form:
+ 
+ \[\left(\begin{matrix}
+  \lambda & 1       & 0      & \dots  & 0      & 0 \\
+  0       & \lambda & 1      & 0      & \dots  & 0 \\
+  \vdots  & \vdots  & \vdots & \vdots & \vdots & \vdots \\
+  0       & 0       & 0      & 0      & \dots  & \lambda  
+ \end{matrix}\right)
+\]
+where all the diagonal entries are $\lambda$ and the superdiagonal elements are all one and every other entry is 0. 
+\end{defn}
+
+A \emph{Jordan block matrix} associated with $\lambda \in F$ is a matrix of the form
+
+ \[\left(\begin{matrix}
+  J_{1} &        &       &   &      &  \\
+        & J_2 &       &       &   &  \\
+    &  &  &  &  &  \\
+         &        &       &       &   & J_t  
+ \end{matrix}\right)
+\]
+
+where each $J_i$ is an elementary Jordan matrix associatedb with $\lambda$.  
+
+\begin{theorem}
+ Let $f: V \rightarrow V$ be a nilpotent map of index $k$ then there is a basis of $V$ with respect to which the matrix of $f$ is a Jordan block matrix.  
+\end{theorem}
+
+
+
+%Bibliography
+%Janson 1 and 2 and tao and 
+%Bergeron for definition of a  rrt.
+
+%\subsection{A Generalisation of Theorem \ref{thm:3.21}}
+
+%In section \ref{sec:npu} we developed a generalised P\'{o}lya urn to describe the distribution of $(n,k)$-stars. in a random recurisve $q$-ary tree. However our urn certainly does not satisfy property A1 so we must appeal to Janson, Remark 4.2 which generalises Theorem \ref{thm:3.21}.
+
+%In the case that A1 is too restrictive we may assume that the $\xi_{ij}$ are arbitrary real numbers as long as the urn process never has to remove balls that do not exist \cite{}.  More precisely Theorem \ref{thm:3.21} holds if we assume the following:
+%\begin{itemize}
+% \item[(B1)]  $A$ has a real eigenvalue $\lambda_1$ such that $Re(\lambda) < \lambda_1$ for any other eigenvalue $\lambda$.
+% \item[(B2)]  There exists correponding left and right eigenvectors $v_{1}$ and $u_{1}$ respectively such that $v_{1,i}>0$ for every $i$ and $u_{1,i} >0$ if $i$ is dominat and $u_{1,i} = 0$ %otherwise.  
+% \item[(B3)] Lemma \ref{lem:9.7} holds.  
+% \item[(B4)] (A2) - (A6) hold.
+%\end{itemize}
+
+%\section{P\'{o}lya urns revisited}
+
+%Let $\mathcal{U}$ be an urn and let $A_q$ be the associated matrix then $A_q \in M_q(\mathbb{C})$ the set of $q\times q $ square matrices with entries in $\mathbb{C}$.  
+
+%Let $\Lambda$ be the set of eigenvalues of $A_q$.  To every $\lambda \in \Lambda$ we can define the \emph{generalised eigenspace} associated with $\lambda$ to be
+%\[V_\lambda = \{ x \in \mathbb{C}^{q} : (A  - \lambda I)^{q} x = 0.\]
+
+%\begin{rem}
+% Given an eigenvector $v$ corresponding to $\lambda$ we have $(A - \lambda I)v  = 0$, this means that $v \in V_\lambda$.
+%\end{rem}
+
+%It can be shown that each generalised eigenspace $V_{\lambda}$ is invariant under the action of $A$, the $V_\lambda$ are mutually orthogonal \cite{}.  In fact $A_q$ is similar to a matrix $J_q = j_{ij}$ where $J_q$ is in Jordan normal form such that each block diagonal form corresponding to eigenvalue $\lambda$ corresponds to $V_\lambda$.  Furthermore there exists the following decomposition of $\mathbb{C}^q$. \cite{}:
+%\[\mathbb{C}^q  = \bigoplus V_\lambda\]
+
+%Since $A_q$ is similar to $J_q$ we can write $A_q = T^{-1}J_qT$ which means that we can regard the action of $J_q$as that of $A_q$ under a change of basis.  Furthermore the columns of $T$ correspond to a basis for each $V_\lambda$.  
+
+%\begin{remk}
+ %Since $J_q$ is only unique upto reordering of Jordan blocks we can order these blocks from top to bottom by size of the relevant $\lambda$.  In particular, if we assume that there exists a largest eigenvector $\lambda_1$ such that $\lambda_1$ is simple then the corresponding Jordan block will be $j_{11} = \lambda_1$.  Since $\lambda_1$ is simple $\dim(V_{\lambda_1} = 1$ and the first column of $T$ is simply the corresponding eigenvector $v_1$. Notice also that the first row of $T^{-1}$ is $u_{1}$.  
+
+%\end{remk}
+%The following sections needs to be cleaned up.
+%Since the $V_{\lambda}$ are mutually orthoganal we can define the projection of%what
+%onto $V_{\lambda_{i}}$ along all the other $V_{\lambda_j}$ such that $j \neq
+%i$.  We can define a projection $P_{\lambda_{i}}^J$ of the matrix $J_q$ to be $J_q$ such
+%that every ocurrence of $\lambda_{i}$ is set to be 1 and every other element of
+%$P_{\lambda_{i}}^J$ to be 0.  Then we can define the projection $P_{\lambda_i} A_q =
+%TP_{\lambda_{i}}^{J}J_qT^{-1}$. 
+
+%\begin{remk}
+ %Therfore the matrix $P_{\lambda_{1}}^J$ is such that $p_{11}^{J} =  1$ and $p_{ij} = 0$ otherwise. $P_{\lambda_1} A_q =T^{-1}P_{\lambda_{1}}^{J}J_qT$ therefore $P_{\lambda_1} A_q = \lambda _{1}v_{1}u_{q}^T$.  From this we may deduce that $P_{\lambda_{1}}$ is the one dimensional projection $p_{11} = v_1 u_1^T$ and all other $t_{ij} = 0$.  
+%\end{remk}
+
+
+%In general we have the following:
+%\[AP_\lambda = P_\lambda A = \lambda P_\lambda + N_\lambda\]
+%where $N\lambda$ is the relevant %what does that mean?
+%nilpotent matrix.  Let $d_\lambda$ be the number such that $N_\lambda^{d_\lambda} \neq 0$ but $N_\lambda^{d_\lambda + 1} = 0$.
+%
+%\begin{remk}
+% If we assume that $\lambda_1$ is the simple, largest eigenvalue of $A$ then $V_{\lambda_{1}}$ is a one dimensinal subspace of $A$ and the projection of $A$ in the direction of %$V_{\lambda_{1}}$ is not nilpotent. %why
+ %Therefore, by defintion $d_{\lambda_1} = 0$. 
+%\end{remk}
+
+%We can also define the following family of quotient spaces $E_{\lambda, k} = E_\lambda / N_\lambda^{k+1}E\lambda$ and we can project onto each of these quotient spaces via the following map:
+%\[Q_{\lambda, k} : E_\lambda \rightarrow E_{\lambda, k}.\]
+
+%\begin{remk}
+ %In the case that $k = d_{\lambda}$ we have that
+ %\begin{align}
+ % E_{\lambda, k} &= E_\lambda / N^{d_\lambda + 1}E_{\lambda} \\
+  %&=E_\lambda
+ %\end{align}
+%Therefore $Q_{\lambda,d_\lambda} = I$.
+%\end{remk}
+
+%\subsection{Martingales}
+%tidy up
+%Janson utilises an embedding of the P\'{o}lya urn process into a continuous time Markov branching process (CTMBP) $\chi (t) = (\chi_{1}(t), \chi_2(t), \dots, \chi_q(t))$ which is defined using the same $a_i$ and $\xi_{i}$ and an initial vector $\chi(0) = X_0$ \cite{}.  In the CTMBP  a particle of type $i$ live for a mean time $a_{i}^{-1}$ with exponetial distribution.  When a ball %of type $i$ dies it is replaces witha  set of balls with disribution given by $(\xi_{ij} + \delta_{ij})_{j = 1}^{q}$ such that $\delta_{ij}$ is the kroeneker delta.  
+
+%Let $\Pspace$ be a probability space such that the following hold:
+%\begin{itemize}
+%\item $T$ is a subset of $\mathbb{R} \cup \{\infty\}.$
+%\item There exists a filtration $\{ \F_t : t \in T\}$ which is collection of sub sigma field of $\F$ for which $\F_s \subseteq \F_t$ if $s < t$.
+%\item A family of integrable random variables $\{X_{t} : t \in T\}$ that are adapted to the filtration i.e. $X_t$ is $\F_t$ measureable for each $t \in T $
+%\end{itemize}
+
+%We should interperate $T$ as time and $\F_t$ as the information available at time $t$.  Then $X_t$ denotes some random quantity whose value $X_t (\omega)$ is revealed at time $t$.
+
+%Let us denote the conditional proability that an event $A$ happens given that another event $B$ has happened by $\mathbb{P}(A | B)$.  %Need to look up a MT version of this.
+
+%\begin{defn}
+% A family of integrable random variables $\{X_t : t \in T\}$ which are adapted to a filtration $\{\F_t : t \in T\}$ is said to be martingale if almost surely $X_s = \mathbb{P}(X_t | \F_s)$ for all $s < t$.  
+%\end{defn}
+
+%Janson defines a martingale $y(t) : = e^{-tA}\chi(t)$ where $A$ is the matrix associated with some P\'{o}lya urn process.
+
+%\begin{lem}\label{lem:ranvec}
+% If $Re(\lambda) > \frac{\lambda_1}{2}$ then there exists a random vector
+% $\tilde{W}_{\lambda} \in E_\lambda$ such that $P_\lambda(t) \rightarrow 
+ %\tilde{W}_\lambda$ almost surely as $t \rightarrow \infty$
+%\end{lem}
+
+%Then Janson define $W_\lambda = Q_{\lambda,0}\tilde{W}_\lambda.$
+
+%\begin{remk}\label{rmk:Wtilde}
+% Clearly $Re(\lambda_1) > \frac{\lambda_1}{2}$ so by lemma \ref{lem:ranvec} there exists a random vector $\tilde{W}_{\lambda_1}$ with the appropriate qualities. We have seen that if $\lambda_1$ is simple then $Q_{\lambda,0} = I$ and by the definition above $W_{\lambda_1}  = \tilde{W}_{\lambda_1}.$
+%\end{remk}
+
+%\begin{defn}\label{def:W}
+% $W = u_{1}^{T}W_{\lambda_1}$
+%\end{defn}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{A space of labeled trees}\label{subsec:1}
+Let $L_n$ be the set of labeled trees on $n$ vertices for any $n \in \mathbb{N}$. We can make $L_n$ into a topological space by putting the discrete topology on it. We can build the infinite product space, $L$, where $L$ is the cartesian product of topological spaces $L_{n}$  :
+\begin{equation}
+ L = \prod_{n=1}^{\infty}L_n.
+\end{equation}
+Any $l \in L$ can be written as $l = (l_{1},l_{2},l_{3} \dots)$ where each $l_{i} \in L_{i}$.  Therfore there exists a subspace $A \subset L$ of attachment trees so that $a \in A$ if and only if $l_{1}$ is the tree on one vertex with no edges and each $l_{i}$ can be built from $l_{i-1}$ by attaching a vertex via an edge.
+ 

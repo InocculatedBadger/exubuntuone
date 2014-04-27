@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: medicine3.aux
+The style file: h-physrev3.bst.bst
+Database file #1: ./medicine.bib
+I was expecting a `,' or a `}'---line 41 of file ./medicine.bib
+ : 
+ : year = {2013},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I'm ignoring matlab's extra "title" field
+--line 61 of file ./medicine.bib
+I was expecting a `,' or a `}'---line 123 of file ./medicine.bib
+ : 
+ : year={1954},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You can't pop an empty literal stack for entry Bela
+while executing---line 973 of file h-physrev3.bst.bst
+Warning--empty author in Cohn
+Warning--empty author and editor in matlab
+Warning--empty author and editor in nauty
+Warning--empty publisher in nauty
+Warning--empty year in nauty
+You've used 15 entries,
+            1957 wiz_defined-function locations,
+            699 strings with 7300 characters,
+and the built_in function-call counts, 2734 in all, are:
+= -- 152
+> -- 165
+< -- 1
++ -- 55
+- -- 39
+* -- 249
+:= -- 358
+add.period$ -- 15
+call.type$ -- 15
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 144
+empty$ -- 291
+format.name$ -- 51
+if$ -- 616
+int.to.chr$ -- 0
+int.to.str$ -- 15
+missing$ -- 16
+newline$ -- 60
+num.names$ -- 12
+pop$ -- 77
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 113
+stack$ -- 0
+substring$ -- 81
+swap$ -- 41
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 21
+width$ -- 17
+write$ -- 102
+(There were 3 error messages)

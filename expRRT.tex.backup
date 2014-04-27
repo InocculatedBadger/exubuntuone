@@ -1,0 +1,321 @@
+%X TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage{color}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+
+%\usepackage[top=20mm,right=20mm,bottom=15mm,left=20mm]{geometry}
+% \geometry{margins=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}
+\newtheorem{propn}{Proposition}
+\newtheorem*{thmm}{Theorem}
+\newtheorem{remk}{Remark} 
+\newtheorem{corol}{Corollary}
+\newtheorem{definition}{Definition}
+
+
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary} 
+\newtheorem{con}[thm]{Conjecture} 
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{nota}{Notation}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}[thm]{Claim}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exer}{Exercise}
+\newtheorem{case}{Case}
+\newtheorem{conj}{Conjecture}
+
+\definecolor{sotonblue}{rgb}{0.0,0.394,0.597}
+
+\newcommand{\pspace}{$(\Omega_\alpha,\mathcal{F}_\alpha,P_\alpha)$ } 
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Pspace}{(\Omega, \mathcal{F},\mathbb{P})}
+\DeclareMathOperator{\Pspacen}{(\Omega_n, \mathcal{F}_n,\mathbb{P}_n)}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\Y}{\mathcal{Y}}
+\DeclareMathOperator{\A}{\mathcal{A}}
+\DeclareMathOperator{\B}{\mathcal{B}}
+\DeclareMathOperator{\F}{\mathcal{F}}
+\DeclareMathOperator{\fix}{fix}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\definecolor{c30a3f9}{RGB}{48,163,249}
+
+%opening
+ \title{Calculating the expected automorphism group for RRTs}
+\author{David Matthews}
+\begin{document}
+\maketitle
+\section{Notation}
+\begin{itemize}
+ \item[$\{T_i\}_{i=1}^{n}$] A random recursive tree process on $n$ vertices.
+ \item[$\T_n$] The set of of random recursive tree processes on $n$ vertices.
+ \item[$\tilde{\T}_n$] The set of labelled rooted tree on $n$ vertices.
+ \item[$S_n$]  the symmetric group on $n$ elements.
+ \item[ $ I(\sigma,T)$] $$ \left\{
+  \begin{array}{l l}
+    1 & \quad \text{if $\sigma \cdot T \in \T_n$}\\
+    0 & \quad \text{otherwise}
+  \end{array} \right.$$
+  \item[$P_n(\sigma)$] $ \sum_{T \in T_n}I(\sigma,T)$
+\end{itemize}
+
+
+
+\section{Random recursive trees}
+
+
+A \emph{random recursive tree} (RRT) is a labelled, rooted tree obtained by assigning a root vertex and adding $n-1$ vertices one by one such that each new vertex is joined by an edge to a randomly and uniformly chosen existing vertex. It is natural to consider RRTs as nested sequences of rooted, labelled trees
+\[T_{1} \subset T_{2} \subset \dots \subset T_{n}\]
+Where each $T_{t}$ has precisely $t$ vertices (and $(t-1)$ edges).  At time $t$ vertex $v$ is chosen uniformly at random from $V(T_{t-1})$ and a new vertex $v_{t}$ is attached to $T_{t-1}$ via the edge $\{(v,v_{t})\}$. Furthermore, we use the notation $\{T_i\}_{i=1}^{n}$ to mean a RRT on $n$ vertice and we denote the set of all RRTs on $n$ vertices by $\T$
+
+Let $T = (V(T),E(T)$ be a labelled tree (not necessarily a RRT) and $d(v,w)$ be the length of the (unique) shortest path between any pair of vertices $v,w \in V(T)$.  Every vertex $v \neq 1 $ has a well defined \emph{father}: the unique vertex $v'$ adjacent to $v$ such that $d(v',1)< d(v,1)$. By the process of RRT construction any vertex $1 \neq v \in T$ is adjacent to exactly one vertex with a lesser label.  
+
+\begin{lem}
+ Let $\mathcal{F}_n$ be the set of functions $f: N \longrightarrow N$ such that $f(1) = 1$ and $f(i) <i$ for $i = 2,3,\dots n$.  There is a bijection between $T_n$ and $\mathcal{F}$.
+\end{lem}
+
+\begin{proof}
+One can associate a function $f \in \mathcal{F}$ to any RRT $\{T_{i}\}_{i=-1}^{i=n} \in \T_n$  by assigning  $f(1) =1$ and $f(i)$ the father of $i$. 
+ To see the converse, take any $f \in {F}_n$ and build $\{T_{i}\}_{i=1}^{n}$ by setting $T_1$ to be the graph with one vertex and no edges and subsequent $T_i$ to be the graph built from $T_i-1$ by attaching vertex $i$ to $f(v)$ for $i = 2,3,\dots,n$.   
+\end{proof}
+
+\begin{corol}
+$\lvert \T_n \rvert =  n-1!$
+\end{corol}
+\begin{proof}
+ Since $\lvert \T_n \rvert = \lvert \mathcal{F}_n \rvert$ it is enough to enumerate $\mathcal{F}_n$.  One can write any $f \in \mathcal{F}_n$ as:
+ \[ f= \left(\begin{array}{cccccc}
+     1& 2&3 &4& \dots & n \\
+     1 & f(2) &f(3) &f(4) &\dots & f(n)
+    \end{array} \right)\]
+Subject to  $f(1) = 1$ and $f(i) <i$ for $i = 1,2,\dots n$. Note that $f$ has 1 \emph{choice}  for $f(2)$  (i.e. $f(2) = 1$), two choices for $f(3)$ and, more generally,  $i-1$ choices for $f(i-1)$. Therefore, $ \lvert \mathcal{F}_n \rvert = n-1!$ 
+\end{proof}
+
+Let $\tilde{\T}_n$ be the set of labelled rooted tree on $n$ vertices.  The symmetric group, $S_n$, can act on $\tilde{\T}_n$ by  which permuting the non-root vertices of any $T \in \tilde{\T}_n$. Given a permutation $\sigma \in S_n$ and a tree $T \in \tilde{\T}_n$ we write the action of $\sigma$ on $T$ as $\sigma \cdot T$.  Figure \ref{fig:1} shows that this action does not restrict to RRTs.  This begs the question:  Given $T \in T_n$ and $\sigma \in S_n$ under what conditions is $\sigma  \cdot T \in T_n$?
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[y=0.80pt,x=0.80pt,yscale=-1, inner sep=0pt, outer sep=0pt, scale = 0.35]
+  \path[cm={{0.55,0.0,0.0,0.51636,(258.57143,453.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[fill=black,line join=miter,line cap=butt,line width=0.800pt] (0,0)
+    node[above right] (flowRoot4017) {};
+  \path[cm={{0.55,0.0,0.0,0.51636,(134.57143,626.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[cm={{0.55,0.0,0.0,0.51636,(253.57143,306.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[cm={{0.55,0.0,0.0,0.51636,(241.57143,-70.16665)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[cm={{0.55,0.0,0.0,0.51636,(389.57143,618.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[cm={{0.55,0.0,0.0,0.51636,(367.57143,186.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[cm={{0.55,0.0,0.0,0.51636,(247.57143,74.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[cm={{0.55,0.0,0.0,0.51636,(117.57143,175.83335)}},fill=c30a3f9]
+    (285.7143,239.5050)arc(0.000:180.000:80.000000 and
+    78.571)arc(-180.000:0.000:80.000000 and 78.571) -- cycle;
+  \path[draw=black,line join=miter,line cap=butt,line width=0.800pt]
+    (355.0000,93.3622) .. controls (352.0000,99.3622) and (355.0000,161.3622) ..
+    (355.0000,161.3622);
+  \path[draw=black,line join=miter,line cap=butt,line width=0.800pt]
+    (264.0000,278.3622) -- (332.0000,226.3622);
+  \path[draw=black,line join=miter,line cap=butt,line width=0.800pt]
+    (394.0000,225.3622) -- (453.0000,283.3622);
+  \path[draw=black,line join=miter,line cap=butt,line width=0.800pt]
+    (371.0000,469.3622) -- (370.0000,535.3622);
+  \path[draw=black,line join=miter,line cap=butt,line width=0.800pt]
+    (396.0000,610.3622) -- (471.0000,721.3622);
+  \path[draw=black,line join=miter,line cap=butt,line width=0.800pt]
+    (278.0000,721.3622) -- (349.0000,614.3622);
+  \path[fill=black,line join=miter,line cap=butt,line width=0.800pt] (0,0)
+    node[above right] (flowRoot3264) {};
+  \path[fill=black] (482,763.36218) node[above right] (text3272) {4};
+  \path[fill=black] (223,772.36218) node[above right] (text3276) {2};
+  \path[fill=black] (350,595.36218) node[above right] (text3280) {3};
+  \path[fill=black] (342,446.36218) node[above right] (text3284) {1};
+  \path[fill=black] (458,328.36218) node[above right] (text3288) {4};
+  \path[fill=black] (205,318.36218) node[above right] (text3292) {3};
+  \path[fill=black] (338,215.36218) node[above right] (text3296) {2};
+  \path[fill=black] (331,68.362183) node[above right] (text3300) {1};
+
+\end{tikzpicture}
+\caption{The top tree, $T$, is a RRT on $n$ vertices.  The bottom tree, $\sigma \cdot T$, where $\sigma  = (23)$ and it is clear that $\sigma \cdot T \notin \T_4$, }\label{fig:1}
+\end{figure}
+
+\begin{remk}
+In fact no transposition $\sigma$ of two non-root adjacent vertices $i,j$ can be such that $\sigma \cdot T \in \T_n$.  Without loss of generatility assume that $i <j $.  Since $i$ and $j$ are adjacent $f(j) = i$, hence:
+\[ \sigma(j) = i  < j = \sigma(i) =  \sigma(f(j))\]
+\end{remk}
+
+
+\begin{lem}
+Let $T \in T_n$ correspond to $f \in \mathcal{F}$ then $\sigma \cdot T$ corresponds to the following  function:
+\[ f'= \left(\begin{array}{cccccc}
+     1& \sigma(2)&\sigma(3) &\sigma(4)& \dots & \sigma(n) \\
+     1 & \sigma(f(2)) &\sigma(f(3)) &\sigma(f(4)) &\dots & \sigma(f(n))
+    \end{array} \right)
+\]
+\end{lem}
+
+\begin{proof}
+ Let $T' = \sigma \cdot T$, there exists some function $g$ corresponding to $T'$ such that:
+ \[ g= \left(\begin{array}{cccccc}
+     1& \sigma(2)&\sigma(3) &\sigma(4)& \dots & \sigma(n) \\
+     1 & g(\sigma(2)) &g(\sigma(3)) &g(\sigma(4)) &\dots & g(\sigma(n))
+    \end{array} \right)
+\]
+
+Where $g(\sigma(i))$ is the father of $\sigma(i)$ but it is clear that the father of $\sigma(i)$ is $\sigma(f(i))$  hence $g(i) = \sigma(f(i))$ for $i = 2,3,\dots,n$.  
+\end{proof}
+
+\begin{corol}\label{cor:sig}
+Let $T \in \T_n$ and $ \sigma \in S_n$.  Then  $\sigma  \cdot T \in \T_n$ if and only if $\sigma(i)<\sigma(f(i))$. 
+\end{corol}
+
+We define an indicator function for any $\sigma \in S_n, T \in \T_n$ as follows:
+ \[ I(\sigma,T) = \left\{
+  \begin{array}{l l}
+    1 & \quad \text{if $\sigma \cdot T \in \T_n$}\\
+    0 & \quad \text{otherwise}
+  \end{array} \right.\]
+
+\subsection{Transpositions}
+In order to understand the effect of permutations of vertices on RRTs we shall examine $\sigma \cdot T$ where $\sigma = (i,j)$ is a transposition such that (without loss of generality) $i <j$.
+
+By Corollary \ref{cor:sig} if $\sigma \cdot T \in T_n$ the the corrosponding function, $f$ satisfies that $\sigma(i) < \sigma(f(i))$ for $i = 2,3,\dots,n$.  
+
+\begin{lem}\label{lem:rrtperm}
+Given a RRT $\{T = T_{i}\}_{i=1}^{n}$ and a transposition $\sigma  = (p,q)$ the labelled tree $\sigma  \cdot T$ is a RRT if and only if $f(q)< p$ and $p$ is a leaf in $T_q$ .   
+\end{lem}
+\begin{remk}\label{remk:split}
+The idea behind the proof of this Lemma is that any  $f \in \mathcal{F}_n$  can be split up into 5 parts as follows:
+ \[ f = \left(\begin{array}{ccc|c|ccc|c|ccc}
+     1    & \dots & i-1    &   i  & i+1    & \dots & j-1    & j    & j+1    & \dots & n \\
+     f(1) & \dots & f(i-1) & f(i) & f(i+1) & \dots & f(j-1) & f(j) & f(j+1) & \dots & f(n)
+    \end{array} \right)
+\]
+
+We then notice that the first and fifth parts ( with domain $i < p$ and $i > q$ respectively) are irrelevant to whether $\sigma \cdot T$ is a random recursive tree.  It remains to find necessary and sufficient conditions for the second third and fourth parts such that $\sigma \cdot T \in \T_n$.   
+
+\end{remk}
+\begin{proof}{[of Lemma \ref{lem:rrtperm}]}  
+\begin{case}[$i<p$]
+ If $T$ is a RRT then $f(i) <p$ so $\sigma(i) = i$ and $\sigma(f(i))$ = $f(i)$.  Hence, if $T$ is a RRT, $\sigma(i) = i < f(i) = \sigma(f(i))$.  
+\end{case}
+\begin{case}[$i=p$]
+If $T$ is a RRT then $f(p) <p$ so $\sigma(f(p)) = f(p)$.  Therefore, if $T$ is a random recursive tree $\sigma(p) = q  > p > f(p)  = \sigma(f(p))$.
+\end{case}
+\begin{case}[$p<i<q$]
+ Since $i \neq p$ and $i \neq q$,  $\sigma(i) = i$. Also note that if $T$ is a RRT $f(i) < i < q$.  
+ 
+ If $f(i) = p$ then $\sigma(f(i)) = q > i  = \sigma(i)$ hence $T$ is \emph{not} a RRT.  
+\end{case}
+\begin{case}[$i=q$]
+ If $f(q) = p$ then clearly $\sigma \cdot T$ is \emph{not} an RRT since it $(p,q)$ flips the edge $(pq)$.  If $T$ is a RRT and $f(q) > p$ then $\sigma(f(q)) = f(q)$, therefore  $\sigma(q) = p < f(q) = \sigma(f(q))$ so $\sigma \cdot T \notin \T_n$.    
+\end{case}
+\begin{case}[$i>q$]
+Since $i \neq p$ and $i \neq q$ it is the case that $\sigma(i) = i$ hence 
+\[\sigma(f(i)) =
+\left\{
+  \begin{array}{l l}
+    f(i) & \quad \text{if $f(i) \neq p,q$}\\
+    p & \quad \text{if $f(i) = q$}\\
+    q & \quad \text{if $f(i) = p$}
+  \end{array} \right.\]
+Since $f(i),p,q < i$ it is always the case that $\sigma(i) < \sigma(f(i))$.  
+\end{case}
+\end{proof}
+For a fixed $ \sigma \in S_n$, we write $P_n(\sigma) = \sum_{T \in T_n}I(\sigma,T)$.
+\begin{lem}
+ $P_n(p,q) = \frac{(i-1)^{2}}{(j-1)(j-2)}$ 
+\end{lem}
+\begin{proof}
+Note that we can think of $P_n(p,q)$  as the number of trees $T \in \T_n$ such that $(p,q) \cdot T \in \T_n$. By Lemma \ref{lem:rrtperm},  $\sigma  = (p,q) \cdot T \in T_n$ if and only if $p$ is a leaf in $T_q$ and $f(q)< p$ so $P_n(p,q)$ is the number of trees $T \in \T_n$ such that $p$ is a leaf in $T_q$ and $f(q)< p$.  
+
+For every $T \in \T_n$ the associated function $f$ can be split up into 5 parts as described in Remark \ref{remk:split} however the only relevant parts are the middle three.  
+ 
+
+
+
+\end{proof}
+
+%The numebr of three cycles (i,j,k) i<j<k
+%The nuymber of X-cycles
+
+ 
+\end{document}
