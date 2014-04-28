@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.4.28)  28 APR 2014 13:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.4.28)  28 APR 2014 15:04
 entering extended mode
  %&-line parsing enabled.
 **medical(5).tex
@@ -703,14 +703,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-
-LaTeX Warning: Citation `;wellerperi' on page 1 undefined on input line 84.
-
-
-LaTeX Warning: Citation `bigg' on page 1 undefined on input line 108.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
@@ -777,10 +770,7 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no ] in font nullfont!
 
 
-LaTeX Warning: Citation `grinberg' on page 4 undefined on input line 311.
-
-
-LaTeX Warning: Citation `francis' on page 4 undefined on input line 311.
+LaTeX Warning: Citation `grinberg' on page 4 undefined on input line 314.
 
 [4] <anprism.png, id=27, 747.79375pt x 1056.94875pt>
 File: anprism.png Graphic file (type png)
@@ -790,7 +780,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5] [6 <./anprism.png>] [7]
 
-LaTeX Warning: Citation `ambrose' on page 8 undefined on input line 427.
+LaTeX Warning: Citation `ambrose' on page 8 undefined on input line 435.
 
 (./medical(5).bbl [8]
 Underfull \hbox (badness 10000) in paragraph at lines 41--44
@@ -807,10 +797,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12123 strings out of 495061
- 216097 string characters out of 1182621
+ 12120 strings out of 495061
+ 216069 string characters out of 1182621
  268453 words of memory out of 3000000
- 14917 multiletter control sequences out of 15000+50000
+ 14914 multiletter control sequences out of 15000+50000
  10055 words of font info for 39 fonts, out of 3000000 for 9000
  189 hyphenation exceptions out of 8191
  56i,13n,55p,772b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -828,7 +818,7 @@ onts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on medical(5).pdf (9 pages, 280964 bytes).
+Output written on medical(5).pdf (9 pages, 281098 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

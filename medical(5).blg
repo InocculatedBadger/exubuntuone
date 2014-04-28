@@ -14,10 +14,7 @@ I was expecting a `,' or a `}'---line 123 of file ./medicine.bib
  : year={1954},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for ";wellerperi"
-Warning--I didn't find a database entry for "bigg"
 Warning--I didn't find a database entry for "grinberg"
-Warning--I didn't find a database entry for "francis"
 Warning--I didn't find a database entry for "ambrose"
 You can't pop an empty literal stack for entry bela
 while executing---line 973 of file h-physrev3.bst.bst
@@ -28,7 +25,7 @@ Warning--empty publisher in nauty
 Warning--empty year in nauty
 You've used 14 entries,
             1957 wiz_defined-function locations,
-            698 strings with 7210 characters,
+            695 strings with 7188 characters,
 and the built_in function-call counts, 2563 in all, are:
 = -- 143
 > -- 152
