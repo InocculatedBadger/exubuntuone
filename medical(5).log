@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.4.28)  28 APR 2014 15:04
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.1.14)  28 APR 2014 19:23
 entering extended mode
  %&-line parsing enabled.
 **medical(5).tex
@@ -703,13 +703,24 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+<drainage.jpg, id=4, 556.32843pt x 228.10219pt>
+File: drainage.jpg Graphic file (type jpg)
+ <use drainage.jpg>
+<abeta.jpg, id=5, 1027.84pt x 1027.84pt>
+File: abeta.jpg Graphic file (type jpg)
+ <use abeta.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./drainage.jpg>]
+[2 <./abeta.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2]
-<square.png, id=18, 432.11438pt x 465.99094pt>
+ [3]
+<square.png, id=23, 432.11438pt x 465.99094pt>
 File: square.png Graphic file (type png)
- <use square.png> [3 <./square.png (PNG copy)>]
+ <use square.png> [4 <./square.png (PNG copy)>]
 Missing character: There is no [ in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no c in font nullfont!
@@ -770,25 +781,28 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no ] in font nullfont!
 
 
-LaTeX Warning: Citation `grinberg' on page 4 undefined on input line 314.
+LaTeX Warning: Citation `grinberg' on page 5 undefined on input line 316.
 
-[4] <anprism.png, id=27, 747.79375pt x 1056.94875pt>
+[5] <anprism.png, id=32, 747.79375pt x 1056.94875pt>
 File: anprism.png Graphic file (type png)
  <use anprism.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6 <./anprism.png>] [7]
+[6] [7 <./anprism.png>] [8] <half.jpeg, id=51, 579.66562pt x 472.01344pt>
+File: half.jpeg Graphic file (type jpg)
 
-LaTeX Warning: Citation `ambrose' on page 8 undefined on input line 435.
+<use half.jpeg>
 
-(./medical(5).bbl [8]
+LaTeX Warning: Citation `ambrose' on page 9 undefined on input line 441.
+
+[9 <./half.jpeg>] (./medical(5).bbl
 Underfull \hbox (badness 10000) in paragraph at lines 41--44
 []\OT1/cmr/m/n/8 M. Za-mir, The Jour-nal of Gen-eral Phys-i-ol-ogy \OT1/cmr/bx/
 n/8 67\OT1/cmr/m/n/8 , 213 (1976),
  []
 
-) [9] (./medical(5).aux)
+) [10] (./medical(5).aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -797,13 +811,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12120 strings out of 495061
- 216069 string characters out of 1182621
- 268453 words of memory out of 3000000
- 14914 multiletter control sequences out of 15000+50000
+ 12138 strings out of 495061
+ 216292 string characters out of 1182621
+ 267453 words of memory out of 3000000
+ 14927 multiletter control sequences out of 15000+50000
  10055 words of font info for 39 fonts, out of 3000000 for 9000
  189 hyphenation exceptions out of 8191
- 56i,13n,55p,772b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,13n,55p,541b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts
@@ -818,9 +832,9 @@ onts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on medical(5).pdf (9 pages, 281098 bytes).
+Output written on medical(5).pdf (10 pages, 397414 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
