@@ -367,7 +367,7 @@ In this section we will describe the algorithm we designed to replicate CAA \foo
 \begin{itemize}
 \item[(i)] Generate 50 random rooted trees; $\mathcal{T} = \{ T_1,T_2,\dots,T_{50}\}$.
 \item[(ii)]Calculate the order of the symmetry group of each tree using the graph isomorphism program \emph{nauty} \cite{nauty}.
-\item[(iii)] Replicate CAA by randomly removing edges. 
+\item[(iii)] Replicate CAA by randomly removing edges $e \in E(T_i)$. 
 \end{itemize} 
 
 Each tree encodes the anatomical information discussed in Section \ref{sec:ana}. Graphical characteristics of each tree such 
@@ -388,10 +388,10 @@ A blockage in the perivascular system was modelled by the removal of an edge fro
 The \emph{initial} volume of each tree $T_i$ was defined to be 
 \[\Vol(T_i) =  \sum_{e \in E(T_i)} \vol(e)\]
  
-The process of edge removal proceeds as follows:  at time $t=0$ we set $T_{i}(0) = T_{i}$ (our randomly generated rooted binary
-tree).  At subsequent times  $t = 1,2,\dots$ we uniformly associated a probability $0<P_{t}\leq 1$,
-with every edge such that $P_t$ was the probability that each edge was removed at time $t$. If some edge $e$ was removed then
-the induced subtree rooted at the endpoint of $e$ greatest distance from the root of $T_i$ was also removed to form $T_i(t)$.   
+The process of edge removal proceeds as follows:  at time $t=0$ we set $T_{i}(0) = T_{i}$ (our randomly generated rooted binary tree).  At subsequent times  $t = 1,2,\dots$ we associated a probability $0<P_{t}\leq 1$,
+that edge $e$ was to be removed at time $t$, with every edge $e \in E(T(t))$. If edge $e$ was removed then the 
+induced subtree rooted at the endpoint of $e$ greatest distance from the root of $T_i$ was also removed to form 
+$T_i(t)$.   
 
 The volume of $T_i$ at time $t$ was defined to be $\Vol_{t}(T_i) = \sum_{e \in E(T_i(t))} \vol(e)$.  We then defined concentration: 
 \[C(t) = \frac{\Vol(T_i)}{\Vol_{t}(T_i)}.\]

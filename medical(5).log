@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.1.14)  28 MAR 2014 10:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.4.28)  28 APR 2014 13:54
 entering extended mode
  %&-line parsing enabled.
 **medical(5).tex
@@ -660,8 +660,11 @@ Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
 \c@definition=\count132
 \c@thm=\count133
 \c@case=\count134
+ (./medical(5).aux
 
-No file medical(5).aux.
+LaTeX Warning: Label `fig:a' multiply defined.
+
+)
 \openout1 = `medical(5).aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
@@ -677,7 +680,7 @@ LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Try loading font information for U+msa on input line 57.
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 57.
@@ -702,91 +705,18 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
 
-LaTeX Warning: Citation `Bengt' on page 1 undefined on input line 64.
+LaTeX Warning: Citation `;wellerperi' on page 1 undefined on input line 84.
 
 
-LaTeX Warning: Citation `wellermicro' on page 1 undefined on input line 65.
+LaTeX Warning: Citation `bigg' on page 1 undefined on input line 108.
 
-
-LaTeX Warning: Citation `wellerperi' on page 1 undefined on input line 65.
-
-
-LaTeX Warning: Citation `wellerperi' on page 1 undefined on input line 67.
-
-
-LaTeX Warning: Citation `wellermicro' on page 1 undefined on input line 67.
-
-
-LaTeX Warning: Citation `Rox' on page 1 undefined on input line 67.
-
-
-LaTeX Warning: File `drainage.jpg' not found on input line 74.
-
-
-! Package pdftex.def Error: File `drainage.jpg' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.74 ... \includegraphics[scale=0.6]{drainage.jpg}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Citation `Rox' on page 1 undefined on input line 78.
-
-
-LaTeX Warning: Citation `;wellerperi' on page 1 undefined on input line 78.
-
-
-LaTeX Warning: Citation `Rox' on page 1 undefined on input line 78.
-
-<abeta.jpg, id=4, 1027.84pt x 1027.84pt>
-File: abeta.jpg Graphic file (type jpg)
- <use abeta.jpg>
-
-LaTeX Warning: Citation `Preston' on page 1 undefined on input line 89.
-
-
-LaTeX Warning: Citation `Song' on page 1 undefined on input line 89.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./abeta.jpg>]
-
-LaTeX Warning: Reference `sec:meth' on page 2 undefined on input line 94.
-
-
-LaTeX Warning: Citation `barabasi' on page 2 undefined on input line 97.
-
-
-LaTeX Warning: Citation `bigg' on page 2 undefined on input line 97.
-
-
-LaTeX Warning: Reference `fig:1' on page 2 undefined on input line 99.
-
-
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-
-LaTeX Warning: Citation `bela' on page 3 undefined on input line 146.
-
-
-LaTeX Warning: Reference `fig:2' on page 3 undefined on input line 148.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-
-LaTeX Warning: Reference `sec:intro' on page 4 undefined on input line 208.
-
-
-LaTeX Warning: Reference `fig:silly' on page 4 undefined on input line 208.
-
-[4]
+<square.png, id=18, 432.11438pt x 465.99094pt>
+File: square.png Graphic file (type png)
+ <use square.png> [3 <./square.png (PNG copy)>]
 Missing character: There is no [ in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no c in font nullfont!
@@ -847,95 +777,43 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no ] in font nullfont!
 
 
-LaTeX Warning: Citation `Zamir' on page 5 undefined on input line 267.
+LaTeX Warning: Citation `grinberg' on page 4 undefined on input line 311.
 
 
-LaTeX Warning: Citation `Cassot' on page 5 undefined on input line 267.
+LaTeX Warning: Citation `francis' on page 4 undefined on input line 311.
 
+[4] <anprism.png, id=27, 747.79375pt x 1056.94875pt>
+File: anprism.png Graphic file (type png)
+ <use anprism.png>
 
-LaTeX Warning: Citation `grinberg' on page 5 undefined on input line 268.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
+[5] [6 <./anprism.png>] [7]
 
-LaTeX Warning: Citation `francis' on page 5 undefined on input line 268.
+LaTeX Warning: Citation `ambrose' on page 8 undefined on input line 427.
 
+(./medical(5).bbl [8]
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
+[]\OT1/cmr/m/n/8 M. Za-mir, The Jour-nal of Gen-eral Phys-i-ol-ogy \OT1/cmr/bx/
+n/8 67\OT1/cmr/m/n/8 , 213 (1976),
+ []
 
-LaTeX Warning: Citation `Cassot' on page 5 undefined on input line 268.
-
-
-LaTeX Warning: Citation `Murray' on page 5 undefined on input line 271.
-
-
-LaTeX Warning: Citation `Zamir' on page 5 undefined on input line 277.
-
-
-LaTeX Warning: Citation `cohn' on page 5 undefined on input line 277.
-
-
-LaTeX Warning: Reference `lem:murr' on page 5 undefined on input line 284.
-
-[5]
-
-LaTeX Warning: Citation `matlab' on page 6 undefined on input line 317.
-
-
-LaTeX Warning: Citation `nauty' on page 6 undefined on input line 320.
-
-
-LaTeX Warning: Reference `sec:ana' on page 6 undefined on input line 324.
-
-
-LaTeX Warning: Citation `Cassot' on page 6 undefined on input line 324.
-
-[6]
-
-LaTeX Warning: Reference `lem:murr' on page 7 undefined on input line 326.
-
-
-LaTeX Warning: Citation `wellerperi' on page 7 undefined on input line 328.
-
-[7]
-
-LaTeX Warning: Reference `t12' on page 8 undefined on input line 356.
-
-
-LaTeX Warning: File `half.jpeg' not found on input line 361.
-
-
-! Package pdftex.def Error: File `half.jpeg' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.361 ...   \includegraphics[scale=0.5]{half.jpeg}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Citation `ambrose' on page 8 undefined on input line 374.
-
-
-LaTeX Warning: Citation `wellerperi' on page 8 undefined on input line 374.
-
-No file medical(5).bbl.
-[8] [9] (./medical(5).aux)
+) [9] (./medical(5).aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12161 strings out of 495061
- 216874 string characters out of 1182621
+ 12123 strings out of 495061
+ 216097 string characters out of 1182621
  268453 words of memory out of 3000000
- 14955 multiletter control sequences out of 15000+50000
- 10223 words of font info for 40 fonts, out of 3000000 for 9000
+ 14917 multiletter control sequences out of 15000+50000
+ 10055 words of font info for 39 fonts, out of 3000000 for 9000
  189 hyphenation exceptions out of 8191
- 56i,13n,55p,891b,627s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,13n,55p,772b,615s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts
@@ -949,11 +827,10 @@ ve/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type
 onts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on medical(5).pdf (9 pages, 283028 bytes).
+f-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on medical(5).pdf (9 pages, 280964 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
